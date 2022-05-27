@@ -10,10 +10,13 @@
         <!-- Header Social Icon Start-->
         <div class="col-lg-4 text-center text-lg-end">
             <div class="d-inline-flex align-items-center" style="height: 45px;">
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/viswatechnologysolutions/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://twitter.com/SolutionViswa"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-whatsapp  fw-normal"></i></a>
                 <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/viswa.technologysolutions/"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/viswatechnologysolutions/"><i class="fab fa-facebook-f fw-normal"></i></a>
                 <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/in/viswa-technology-solutions-566a77209/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://twitter.com/SolutionViswa"><i class="fab fa-twitter fw-normal"></i></a>
+               
+                
             </div>
         </div>
     </div>
@@ -36,7 +39,19 @@
                 <a href="{{ url('home') }}" class="nav-item nav-link {{ Request::is('home') ? 'active':'' }}">Home</a>
                 <a href="{{ url('about') }}" class="nav-item nav-link {{ Request::is('about') ? 'active':'' }}">About</a>
                 <a href="{{ url('services') }}" class="nav-item nav-link {{ Request::is('services') ? 'active':'' }}">Services</a>
-                <a href="{{ url('portfolio') }}" class="nav-item nav-link {{ Request::is('portfolio') ? 'active':'' }}">Portfolio</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle  {{ Request::is('portfolio') ? 'active':'' }}">Portfolio</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="#" class="dropdown-item">Web Design & Development</a>
+                        <a href="#" class="dropdown-item">App Development</a>
+                        <a href="#" class="dropdown-item">Graphic Design</a>
+                        <a href="#" class="dropdown-item">Digital Marketing</a>
+                        <a href="#" class="dropdown-item">E-commerce Solution</a>
+                        <a href="#" class="dropdown-item">Hosting</a>
+                        <a href="#" class="dropdown-item">Software Development</a>
+                        <a href="#" class="dropdown-item">Message Provider</a>
+                    </div>
+                </div>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle {{ Request::is('blogs') || Request::is('videos') ? 'active':'' }}" data-bs-toggle="dropdown">Resources</a>
                     <div class="dropdown-menu m-0">

@@ -25,9 +25,8 @@
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
                             <h6 class="fw-bold text-primary text-uppercase mb-3"> Opening Days :</h6>
-                            <p class="mb-4"> Monday - Friday : 10am to 6pm</p>
-                            <h6 class="fw-bold text-primary text-uppercase">Vacations :</h6>
-                            <p class="mb-4"> All Sundays & National Holidays</p>
+                            <p class="mb-4"> Monday - Friday : 10 am to 6 pm</p>
+                            
                         </div>
                     </div>
                     <!-- Business Hours End -->
