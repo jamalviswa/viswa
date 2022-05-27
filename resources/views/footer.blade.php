@@ -1,9 +1,9 @@
  <!-- Footer Start -->
  <div class="container-fluid bg-dark text-light mt-2 wow fadeInUp" data-wow-delay="0.1s">
 
-<div class="container-fluid">
+<div class="container">
     <div class="row gx-5">
-        <div class="col-lg-3 col-md-4 footer-about">
+        <div class="col-lg-4 col-md-4 footer-about">
             <div class="d-flex flex-column align-items-center justify-content-center text-center h-100  p-4" style="background-color: #000 !important;">
                 <a href="index.html" class="navbar-brand">
                     <h1 class="m-0 text-white"><img src="assets\logo2.gif" width="250" alt="VTS"></h1>
@@ -20,7 +20,36 @@
         </div>
         <div class="col-lg-8 col-md-4">
             <div class="row gx-5">
-                <div class="col-lg-4 col-md-12 pt-5 mb-5">
+               
+                <!--<div class="col-lg-4 col-md-12 pt-5 mb-5">-->
+                <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                    <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                        <h3 class="text-light mb-0">Business Hours</h3>
+                    </div>
+                    <div class="link-animated d-flex flex-column justify-content-start">
+                        <h6 class="fw-bold text-primary text-uppercase mb-3"> Opening Days :</h6>
+                        <p class="mb-4"> Monday - Friday : 10 am to 7 pm</p>
+                        <h6 class="fw-bold text-primary text-uppercase">Vacation :</h6>
+                        <p class="mb-4"> All Sundays & National Holidays</p>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-12 pt-0 pt-lg-5 mb-5">
+                    <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                        <h3 class="text-light mb-0">Quick Links</h3>
+                    </div>
+                    <div class="link-animated d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="about.html"><i class="bi bi-arrow-right text-primary me-2"></i>About</a>
+                        <a class="text-light mb-2" href="service.html"><i class="bi bi-arrow-right text-primary me-2"></i>Services</a>
+                        <a class="text-light mb-2" href="blog.html"><i class="bi bi-arrow-right text-primary me-2"></i>Blogs</a>
+                        <a class="text-light mb-2" href="videos.html"><i class="bi bi-arrow-right text-primary me-2"></i>Videos</a>
+                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Products</a>
+                        <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 pt-5 mb-5">
                     <div class="section-title section-title-sm position-relative pb-3  mb-4">
                         <h3 class="text-light mb-0"> Get In Touch</h3>
                     </div>
@@ -45,34 +74,7 @@
 
                     </div>
                 </div>
-                <!--<div class="col-lg-4 col-md-12 pt-5 mb-5">-->
-                <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                    <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                        <h3 class="text-light mb-0">Business Hours</h3>
-                    </div>
-                    <div class="link-animated d-flex flex-column justify-content-start">
-                        <h6 class="fw-bold text-primary text-uppercase mb-3"> Opening Days :</h6>
-                        <p class="mb-4"> Monday - Friday : 10 am to 7 pm</p>
-                        <h6 class="fw-bold text-primary text-uppercase">Vacation :</h6>
-                        <p class="mb-4"> All Sundays & National Holidays</p>
-                    </div>
-                </div>
 
-
-                <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                    <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                        <h3 class="text-light mb-0">Quick Links</h3>
-                    </div>
-                    <div class="link-animated d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                        <a class="text-light mb-2" href="about.html"><i class="bi bi-arrow-right text-primary me-2"></i>About</a>
-                        <a class="text-light mb-2" href="service.html"><i class="bi bi-arrow-right text-primary me-2"></i>Services</a>
-                        <a class="text-light mb-2" href="blog.html"><i class="bi bi-arrow-right text-primary me-2"></i>Blogs</a>
-                        <a class="text-light mb-2" href="videos.html"><i class="bi bi-arrow-right text-primary me-2"></i>Videos</a>
-                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Products</a>
-                        <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contact</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
