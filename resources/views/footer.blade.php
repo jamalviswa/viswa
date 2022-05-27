@@ -4,7 +4,7 @@
         <div class="row gx-5">
 
             <!-- Footer First Part start-->
-            <div class="col-lg-4 col-md-4 footer-about">
+            <div class="col-lg-4 col-md-6 footer-about">
                 <div class="d-flex flex-column align-items-center justify-content-center text-center h-100  p-4" style="background-color: #000 !important;">
                     <a href="index.html" class="navbar-brand">
                         <h1 class="m-0 text-white"><img src="{{URL::to('images/v_logo.png')}}" width="250" alt="VTS"></h1>
@@ -15,11 +15,11 @@
             <!-- Footer First Part End-->
 
             <!-- Footer Second Part start-->
-            <div class="col-lg-8 col-md-4">
+            <div class="col-lg-8 col-md-6">
                 <div class="row gx-5">
 
                     <!-- Business Hours Start -->
-                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                    <div class="col-lg-5 col-md-12 pt-5 mb-5">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h3 class="text-light mb-0">Business Hours</h3>
                         </div>
@@ -50,7 +50,7 @@
                     <!-- Quick Link End -->
 
                     <!-- Get in touch start -->
-                    <div class="col-lg-5 col-md-12 pt-5 mb-5">
+                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                         <div class="section-title section-title-sm position-relative pb-3  mb-4">
                             <h3 class="text-light mb-0">Get In Touch</h3>
                         </div>
