@@ -32,18 +32,19 @@
         <!-- Header Nav Start Here-->
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="{{ url('home') }}" class="nav-item nav-link active">Home</a>
-                <a href="{{ url('about') }}" class="nav-item nav-link">About</a>
-                <a href="{{ url('services') }}" class="nav-item nav-link">Services</a>
-                <a href="{{ url('portfolio') }}" class="nav-item nav-link">Portfolio</a>
+                
+                <a href="{{ url('home') }}" class="nav-item nav-link {{ Request::is('home') ? 'active':'' }}">Home</a>
+                <a href="{{ url('about') }}" class="nav-item nav-link {{ Request::is('about') ? 'active':'' }}">About</a>
+                <a href="{{ url('services') }}" class="nav-item nav-link {{ Request::is('services') ? 'active':'' }}">Services</a>
+                <a href="{{ url('portfolio') }}" class="nav-item nav-link {{ Request::is('portfolio') ? 'active':'' }}">Portfolio</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resources</a>
+                    <a href="#" class="nav-link dropdown-toggle {{ Request::is('blogs') || Request::is('videos') ? 'active':'' }}" data-bs-toggle="dropdown">Resources</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ url('blogs') }}" class="dropdown-item">Blogs</a>
-                        <a href="{{ url('videos') }}" class="dropdown-item">Videos</a>
+                        <a href="{{ url('blogs') }}" class="dropdown-item {{ Request::is('blogs') ? 'active':'' }}">Blogs</a>
+                        <a href="{{ url('videos') }}" class="dropdown-item {{ Request::is('videos') ? 'active':'' }}">Videos</a>
                     </div>
                 </div>
-                <a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>
+                <a href="{{ url('contact') }}" class="nav-item nav-link {{ Request::is('contact') ? 'active':'' }}">Contact</a>
             </div>
         </div>
     </nav>
