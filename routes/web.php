@@ -31,6 +31,7 @@ Route::get('/blogs', [ResourcesController::class,'blogs']);
 Route::get('/videos', [ResourcesController::class,'videos']);
 Route::get('/contact', [ContactController::class,'index']);
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::any('adminusers/login', [AdminusersController::class,'login']);
+Route::prefix('admin')->group(function(){
+Route::any('/', [AdminusersController::class,'login']);
+Route::any('/login', [AdminusersController::class,'login']);
 });
