@@ -56,7 +56,7 @@
             <div class="row g-5">
             <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="img/about.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="img/blog-1.jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -73,13 +73,13 @@
 		            </div>
 		        </div>
 
-<div class="col-lg-6">
-                    <!-- Blog Detail Start -->
+<!--<div class="col-lg-6">
+                     Blog Detail Start 
                     <div class="mb-5">   
                         <h2 class="mb-4">Our Mission</h1>
                         <h5 class="mb-3">To Provide Unique Designs And Highly Quality Tested Code For Our Customers.</h5>
                         
-		    </div>
+		    </div>-->
 		</div>
          </div>
       </div>
