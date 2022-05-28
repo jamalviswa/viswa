@@ -19,6 +19,7 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminusersController;
 
 
 Route::get('/', [HomeController::class,'index']);
@@ -29,3 +30,7 @@ Route::get('/portfolio', [ProductController::class,'index']);
 Route::get('/blogs', [ResourcesController::class,'blogs']);
 Route::get('/videos', [ResourcesController::class,'videos']);
 Route::get('/contact', [ContactController::class,'index']);
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::any('adminusers/login', [AdminusersController::class,'login']);
+});
