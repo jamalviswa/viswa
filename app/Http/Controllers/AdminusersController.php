@@ -10,4 +10,8 @@ class AdminusersController extends Controller
     {
         return view('adminusers.login');
     }
+    public function dashboard()
+    {
+        return view('adminusers.dashboard');
+    }
 }

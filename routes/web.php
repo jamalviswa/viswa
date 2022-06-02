@@ -34,4 +34,5 @@ Route::get('/contact', [ContactController::class,'index']);
 Route::prefix('admin')->group(function(){
 Route::any('/', [AdminusersController::class,'login']);
 Route::any('/login', [AdminusersController::class,'login']);
+Route::any('/dashboard', [AdminusersController::class,'dashboard']);
 });
