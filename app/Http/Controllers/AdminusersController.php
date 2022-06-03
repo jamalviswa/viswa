@@ -14,4 +14,8 @@ class AdminusersController extends Controller
     {
         return view('adminusers.dashboard');
     }
+    public function profile()
+    {
+        return view('adminusers.profile');
+    }
 }

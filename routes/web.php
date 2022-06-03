@@ -35,4 +35,5 @@ Route::prefix('admin')->group(function(){
 Route::any('/', [AdminusersController::class,'login']);
 Route::any('/login', [AdminusersController::class,'login']);
 Route::any('/dashboard', [AdminusersController::class,'dashboard']);
+Route::any('/profile', [AdminusersController::class,'profile']);
 });
