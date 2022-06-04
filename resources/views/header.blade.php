@@ -39,19 +39,8 @@
                 <a href="{{ url('home') }}" class="nav-item nav-link {{ Request::is('home') ? 'active':'' }}">Home</a>
                 <a href="{{ url('about') }}" class="nav-item nav-link {{ Request::is('about') ? 'active':'' }}">About</a>
                 <a href="{{ url('services') }}" class="nav-item nav-link {{ Request::is('services') ? 'active':'' }}">Services</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle  {{ Request::is('portfolio') ? 'active':'' }}">Portfolio</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">Web Design & Development</a>
-                        <a href="#" class="dropdown-item">App Development</a>
-                        <a href="#" class="dropdown-item">Graphic Design</a>
-                        <a href="#" class="dropdown-item">Digital Marketing</a>
-                        <a href="#" class="dropdown-item">E-commerce Solution</a>
-                        <a href="#" class="dropdown-item">Hosting</a>
-                        <a href="#" class="dropdown-item">Software Development</a>
-                        <a href="#" class="dropdown-item">Message Provider</a>
-                    </div>
-                </div>
+                <a href="{{ url('portfolio') }}" class="nav-item nav-link {{ Request::is('portfolio') ? 'active':'' }}">portfolio</a>
+               
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle {{ Request::is('blogs') || Request::is('videos') ? 'active':'' }}" data-bs-toggle="dropdown">Resources</a>
                     <div class="dropdown-menu m-0">
