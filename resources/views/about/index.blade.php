@@ -73,13 +73,7 @@
 		            </div>
 		        </div>
 
-<!--<div class="col-lg-6">
-                     Blog Detail Start 
-                    <div class="mb-5">   
-                        <h2 class="mb-4">Our Mission</h1>
-                        <h5 class="mb-3">To Provide Unique Designs And Highly Quality Tested Code For Our Customers.</h5>
-                        
-		    </div>-->
+
 		</div>
          </div>
       </div>
