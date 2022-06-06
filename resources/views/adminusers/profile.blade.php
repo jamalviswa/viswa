@@ -21,7 +21,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="card profile-header">
                     <div class="body text-center">
-                        <div class="profile-image mb-3"><img src="../assets/images/ajith.jpg" widht="140" height="140" class="rounded-circle" alt=""></div>
+                        <div class="profile-image mb-3"><img src="{{URL::to('images/ajith.jpg')}}" widht="140" height="140" class="rounded-circle" alt=""></div>
                         <div>
                             <h4 class="mb-0"><strong>Viswa</strong> Technology Solutions</h4>
                             <span>info@viswatechnologysolutions.com</span>
