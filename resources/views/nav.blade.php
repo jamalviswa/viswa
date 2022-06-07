@@ -11,7 +11,7 @@
          <div class="navbar-right">
              <div id="navbar-menu">
                  <ul class="nav navbar-nav">
-                     <li><a href="#" class="icon-menu"><i class="icon-power"></i></a></li>
+                     <li><a href="{{ url('admin/login') }}" class="icon-menu"><i class="icon-power"></i></a></li>
                  </ul>
              </div>
          </div>

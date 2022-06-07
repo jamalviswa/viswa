@@ -18,4 +18,8 @@ class AdminusersController extends Controller
     {
         return view('adminusers.profile');
     }
+    public function forgot()
+    {
+        return view('adminusers.forgot');
+    }
 }

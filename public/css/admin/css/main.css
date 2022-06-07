@@ -4554,6 +4554,13 @@ select.form-control:not([size]):not([multiple]) {
     color: #fff
 }
 
+.auth-main .auth_detail p {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 300;
+    color: #fff
+}
+
 @media screen and (max-width: 992px) {
     .auth-main .auth_detail h2 {
         font-size: 35px
@@ -4563,6 +4570,9 @@ select.form-control:not([size]):not([multiple]) {
 @media screen and (max-width: 640px) {
     .auth-main .auth_detail h2 {
         font-size: 25px
+    }
+    #j_logo{
+        background-color: #000;
     }
 }
 

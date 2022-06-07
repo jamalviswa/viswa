@@ -1039,8 +1039,8 @@
 }
 
 .theme-orange .fancy-checkbox input[type="checkbox"]:checked+span:before {
-    background: #feb800;
-    border-color: #feb800
+    background: #06aa9e;
+    border-color: #06aa9e
 }
 
 .theme-orange .chat-widget li.right .chat-info {

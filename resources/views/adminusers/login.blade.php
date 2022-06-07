@@ -1,41 +1,32 @@
 @extends('layouts.login')
 @section('content')
-<!--  Login Page Start-->
-<div class="container">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <h3>Sign In</h3>
-            </div>
-            <div class="card-body">
-                <form>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="username">
-                    </div>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="password">
-                    </div>
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Remember Me
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Login" class="btn float-right login_btn">
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
+<!-- Login Section Start-->
+<div class="col-lg-4">
+    <div class="card">
+        <div class="header">
+            <p class="lead">Login to your account</p>
+        </div>
+        <div class="body">
+            <form class="form-auth-small" action="{{ url('admin/dashboard') }}">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email">
                 </div>
-            </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group clearfix">
+                    <label class="fancy-checkbox element-left">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-dark btn-lg btn-block">LOGIN</button>
+                <div class="bottom">
+                    <span class="helper-text m-b-10"><i class="fa fa-lock"></i><a href="{{ url('admin/forgot') }}" class="text-secondary"> Forgot password?</a></span>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<!-- Login Page End-->
+<!-- Login Section End-->
 @endsection

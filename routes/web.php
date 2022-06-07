@@ -36,8 +36,11 @@ Route::any('/', [AdminusersController::class,'login']);
 Route::any('/login', [AdminusersController::class,'login']);
 Route::any('/dashboard', [AdminusersController::class,'dashboard']);
 Route::any('/profile', [AdminusersController::class,'profile']);
+Route::any('/forgot', [AdminusersController::class,'forgot']);
 
 Route::get('/resources/index', [ResourcesController::class,'index']);
 Route::get('/resources/add', [ResourcesController::class,'add']);
 Route::post('/resources/store', [ResourcesController::class,'store']);
+
+Route::get('/resources/index', [ResourcesController::class,'index']);
 });
