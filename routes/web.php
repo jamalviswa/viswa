@@ -20,6 +20,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminusersController;
+use App\Http\Controllers\SitesettingsController;
 
 
 Route::get('/', [HomeController::class,'index']);
@@ -43,4 +44,6 @@ Route::get('/resources/add', [ResourcesController::class,'add']);
 Route::post('/resources/store', [ResourcesController::class,'store']);
 
 Route::get('/resources/index', [ResourcesController::class,'index']);
+
+Route::any('/sitesettings',[SitesettingsController::class,'index']);
 });

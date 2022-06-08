@@ -21,7 +21,7 @@
          <nav id="left-sidebar-nav" class="sidebar-nav">
              <ul id="main-menu" class="metismenu">
                  <li class="{{ Request::is('admin/dashboard') ? 'active':'' }}"><a href="{{ url('admin/dashboard') }}"><i class="icon-home"></i><span>Dashboard</span></a></li>
-                 <li class="{{ Request::is('admin/dashboard') ? 'active':'' }}"><a href="{{ url('admin/sitesettings') }}"><i class="icon-settings"></i><span>Site Settings</span></a></li>
+                 <li class="{{ Request::is('admin/sitesettings') ? 'active':'' }}"><a href="{{ url('admin/sitesettings') }}"><i class="icon-settings"></i><span>Site Settings</span></a></li>
                  <!-- <li><a href="#"><i class="icon-size-fullscreen"></i><span>Banner</span></a></li>
                  <li><a href="#"><i class="icon-wrench"></i><span>Services</span></a></li>
                  <li><a href="#"><i class="icon-book-open"></i><span>Projects</span></a></li>
