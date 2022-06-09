@@ -43,6 +43,10 @@ Route::get('/resources/index', [ResourcesController::class,'index']);
 Route::get('/resources/add', [ResourcesController::class,'add']);
 Route::post('/resources/store', [ResourcesController::class,'store']);
 
+Route::any('/resources/experts', [ResourcesController::class,'experts']);
+Route::any('/resources/experts/add', [ResourcesController::class,'experts_add']);
+Route::any('/resources/experts/edit', [ResourcesController::class,'experts_edit']);
+
 Route::get('/resources/index', [ResourcesController::class,'index']);
 
 Route::any('/sitesettings',[SitesettingsController::class,'index']);

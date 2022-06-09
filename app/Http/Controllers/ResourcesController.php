@@ -22,4 +22,14 @@ class ResourcesController extends Controller
 
         return view('resources.videos');
     }
+
+    
+    public function experts_add(){
+
+        return view('resources.experts_add');
+    }
+    public function experts_edit(){
+
+        return view('resources.experts_edit');
+    }
 }
