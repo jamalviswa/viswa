@@ -23,7 +23,10 @@ class ResourcesController extends Controller
         return view('resources.videos');
     }
 
-    
+    public function experts_index(){
+
+        return view('resources.experts_index');
+    }
     public function experts_add(){
 
         return view('resources.experts_add');

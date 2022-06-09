@@ -21,21 +21,19 @@
                 <div class="card">
                     <div class="header">
                         <h2>All Service Category List</h2>
-                        <ul class="header-dropdown dropdown dropdown-animated scale-left">
-                            <li><a href="javascript:void(0);" class="full-screen"><i class="icon-size-fullscreen"></i></a></li>
-                        </ul>
+                       
                     </div>
                     <div class="body">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="col-lg-8 col-md-8 col-sm-12">
                                 <form>
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                                             <div class="input-group">
                                                 <input type="text" class="form-control" placeholder="Search...">
                                             </div>
                                         </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                                             <select class="custom-select">
                                                 <option selected>Choose...</option>
                                                 <option value="1">One</option>
@@ -43,7 +41,7 @@
                                                 <option value="3">Three</option>
                                             </select>
                                         </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                                             <button type="button" class="btn btn-success"><i class="icon-magnifier"></i></button>
                                             <button type="button" class="btn btn-danger"><i class="icon-close"></i></button>
                                         </div>

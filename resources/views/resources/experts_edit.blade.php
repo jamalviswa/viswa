@@ -8,10 +8,10 @@
             </div>
             <div class="col-md-6 col-sm-12 text-right">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Edit Experts</li>
                 </ul>
-                <a href="javascript:void(0);" class="btn btn-sm btn-primary" title="">Back To List</a>
+                <a href="{{ url('admin/resources/experts/index') }}" class="btn btn-sm btn-primary" title="">Back To List</a>
             </div>
         </div>
     </div>
@@ -74,8 +74,8 @@
                                 </div>
                             </div>
                             <br>
-                            <a href="javascript:void(0);" class="btn btn-sm btn-primary" title="">Edit</a>
-                            <a href="javascript:void(0);" class="btn btn-sm btn-danger" title="">Cancel</a>
+                            <a href="{{ url('admin/resources/experts/index') }}" class="btn btn-sm btn-primary" title="">Edit</a>
+                            <a href="{{ url('admin/resources/experts/index') }}" class="btn btn-sm btn-danger" title="">Cancel</a>
                         </form>
                     </div>
                 </div>
