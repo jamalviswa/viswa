@@ -43,11 +43,20 @@ Route::get('/resources/index', [ResourcesController::class,'index']);
 Route::get('/resources/add', [ResourcesController::class,'add']);
 Route::post('/resources/store', [ResourcesController::class,'store']);
 
-Route::any('/resources/experts/index', [ResourcesController::class,'experts_index']);
+Route::get('/resources/experts/index', [ResourcesController::class,'experts_index']);
 Route::any('/resources/experts/add', [ResourcesController::class,'experts_add']);
 Route::any('/resources/experts/edit', [ResourcesController::class,'experts_edit']);
 
-Route::get('/resources/index', [ResourcesController::class,'index']);
+Route::get('/about/index', [AboutController::class,'admin_index']);
+Route::any('/about/add', [AboutController::class,'admin_add']);
+Route::any('/about/edit', [AboutController::class,'admin_edit']);
+
+Route::get('/resources/blogs/index', [ResourcesController::class,'blogs_index']);
+Route::any('/resources/blogs/add', [ResourcesController::class,'blogs_add']);
+Route::any('/resources/blogs/edit', [ResourcesController::class,'blogs_edit']);
+
+Route::get('/contact/index', [ContactController::class,'admin_index']);
+
 
 Route::any('/sitesettings',[SitesettingsController::class,'index']);
 });
