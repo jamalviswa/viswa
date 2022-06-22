@@ -43,7 +43,7 @@ Route::get('/resources/index', [ResourcesController::class,'index']);
 Route::get('/resources/add', [ResourcesController::class,'add']);
 Route::post('/resources/store', [ResourcesController::class,'store']);
 
-Route::get('/resources/experts/index', [ResourcesController::class,'experts_index']);
+Route::get('/resources/experts/index', [ResourcesController::class,'experts_index'])->name('resources.experts_index');
 Route::get('/resources/experts/add', [ResourcesController::class,'experts_add']);
 Route::post('/resources/experts/store', [ResourcesController::class,'experts_store']);
 Route::any('/resources/experts/edit', [ResourcesController::class,'experts_edit']);
