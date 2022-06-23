@@ -23,17 +23,21 @@
                         <h2>Add Clients Details</h2>
                     </div>
                     <div class="body">
-                        <form id="basic-form" method="post">
+                        <form id="basic-form" action="{{ url('admin/about/store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
                             <div class="row clearfix">      
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label class="control-label">Image</label>
-                                        <input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp">
+                                        <input type="file" class="form-control" name="image">
+                                        @error('image')
+                                        <div class="text text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <br>
-                            <a href="{{ url('admin/about/index') }}" class="btn btn-sm btn-primary" title="">Add</a>
+                            <button type="submit" class="btn btn-sm btn-primary">Save</button>
                             <a href="{{ url('admin/about/index') }}" class="btn btn-sm btn-danger" title="">Cancel</a>
                         </form>
                     </div>

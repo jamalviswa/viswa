@@ -44,12 +44,16 @@ Route::get('/resources/add', [ResourcesController::class,'add']);
 Route::post('/resources/store', [ResourcesController::class,'store']);
 
 Route::get('/resources/experts/index', [ResourcesController::class,'experts_index'])->name('resources.experts_index');
-Route::get('/resources/experts/add', [ResourcesController::class,'experts_add']);
-Route::post('/resources/experts/store', [ResourcesController::class,'experts_store']);
+Route::get('/resources/experts/add', [ResourcesController::class,'experts_add'])->name('resources.experts_add');
+Route::post('/resources/experts/store', [ResourcesController::class,'experts_store'])->name('resources.experts_store');
+
 Route::any('/resources/experts/edit', [ResourcesController::class,'experts_edit']);
 
-Route::get('/about/index', [AboutController::class,'admin_index']);
-Route::any('/about/add', [AboutController::class,'admin_add']);
+//Our Clients
+Route::get('/about/index', [AboutController::class,'admin_index'])->name('about.admin_index');
+Route::get('/about/add', [AboutController::class,'admin_add'])->name('about.admin_add');
+Route::post('/about/store', [AboutController::class,'admin_store'])->name('about.admin_store');
+
 Route::any('/about/edit', [AboutController::class,'admin_edit']);
 
 Route::get('/resources/blogs/index', [ResourcesController::class,'blogs_index']);

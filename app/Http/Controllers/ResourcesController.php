@@ -28,7 +28,10 @@ class ResourcesController extends Controller
 
     public function experts_index(){
 
-        return view('resources.experts_index');
+        $experts = Expert::paginate(3);
+        //return $experts;
+        //$experts = $experts->paginate(3);
+        return view('resources.experts_index', ['experts' => $experts]);
     }
     public function experts_add(){
 

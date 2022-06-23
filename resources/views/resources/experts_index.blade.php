@@ -58,18 +58,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php //$i = ($experts->currentpage() - 1) * $experts->perpage() + 1; ?>
+                                    @foreach($experts as $expert)
                                     <tr>
                                         <td style="width: 50px;">
                                             1
                                         </td>
                                         <td>
-                                        <img src="{{URL::to('images/A1.jpg')}}" class="avatar" alt="VTS" width="100" height="50">
+                                        <img src="{{URL::to('images/experts/'.$expert->image.'')}}" class="avatar" alt="VTS" width="100" height="50">
                                         </td>
                                         <td>
-                                            <p class="c_name">Nivedha</p>
+                                            <p class="c_name">{{$expert->name}}</p>
                                         </td>
                                         <td>
-                                            <p class="c_name">App Developer</p>
+                                            <p class="c_name">{{$expert->position}}</p>
                                         </td>
                                         <td>
                                             <a href="{{ url('admin/resources/experts/edit') }}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-edit"></i></a>
@@ -77,9 +79,12 @@
                                             <a href="#" class="btn btn-sm btn-danger js-sweetalert" data-type="confirm" title="Delete"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
+                                    @endforeach
+                                   
                                    
                                 </tbody>
                             </table>
+                            
                         </div>
                     </div>
                     <!-- Table End-->
@@ -94,21 +99,12 @@
                                 <!-- Pagination showing Entries End-->
 
                                 <!-- Pagination Start-->
+                                
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <nav aria-label="...">
-                                        <ul class="pagination justify-content-end">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="javascript:void(0);" tabindex="-1">Previous</a>
-                                            </li>
-                                            <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                            <!-- <li class="page-item active">
-                                                <a class="page-link" href="javascript:void(0);">2 <span class="sr-only">(current)</span></a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
-                                            <li class="page-item">
-                                                <a class="page-link" href="javascript:void(0);">Next</a>
-                                            </li>
-                                        </ul>
+                                    {{ $experts->links('layouts.pagination') }}
+                                      
+
                                     </nav>
                                 </div>
                             </div>
