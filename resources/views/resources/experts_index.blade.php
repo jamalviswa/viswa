@@ -21,7 +21,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>All Experts List</h2>
-                       
+
                     </div>
                     <div class="body">
                         <div class="row">
@@ -35,82 +35,86 @@
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                                             <button type="button" class="btn btn-success"><i class="icon-magnifier"></i></button>
-                                            <button type="button" class="btn btn-danger"><i class="icon-close"></i></button>
+                                            @if (isset($_REQUEST['search']))
+                                            <a href="{{ url('admin/resources/experts/index') }}" class="btn btn-danger"><i class="icon-close"></i></a>
+                                            @endif
                                         </div>
-                                       
+
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Table Start-->
                     <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-hover m-b-0 c_list">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php //$i = ($experts->currentpage() - 1) * $experts->perpage() + 1; ?>
-                                    @foreach($experts as $expert)
-                                    <tr>
-                                        <td style="width: 50px;">
-                                            1
-                                        </td>
-                                        <td>
-                                        <img src="{{URL::to('images/experts/'.$expert->image.'')}}" class="avatar" alt="VTS" width="100" height="50">
-                                        </td>
-                                        <td>
-                                            <p class="c_name">{{$expert->name}}</p>
-                                        </td>
-                                        <td>
-                                            <p class="c_name">{{$expert->position}}</p>
-                                        </td>
-                                        <td>
-                                            <a href="{{ url('admin/resources/experts/edit') }}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-edit"></i></a>
-                                            <!-- <a href="{{ url('admin/resources/experts/view') }}" class="btn btn-sm btn-success" title="View"><i class="fa fa-eye"></i></a> -->
-                                            <a href="#" class="btn btn-sm btn-danger js-sweetalert" data-type="confirm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                   
-                                   
-                                </tbody>
-                            </table>
-                            
-                        </div>
+                        <?php if ($experts->count() > '0') { ?>
+                            <div class="table-responsive">
+                                <table class="table table-hover m-b-0 c_list">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = ($experts->currentpage() - 1) * $experts->perpage() + 1; ?>
+                                        @foreach($experts as $expert)
+                                        <tr>
+                                            <td style="width: 50px;">
+                                                {{ $i }}
+                                            </td>
+                                            <td>
+                                                <img src="{{URL::to('images/experts/'.$expert->image.'')}}" class="avatar" alt="VTS" width="100" height="50">
+                                            </td>
+                                            <td>
+                                                <p class="c_name">{{$expert->name}}</p>
+                                            </td>
+                                            <td>
+                                                <p class="c_name">{{$expert->position}}</p>
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('admin/resources/experts/edit') }}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-edit"></i></a>
+                                                <!-- <a href="{{ url('admin/resources/experts/view') }}" class="btn btn-sm btn-success" title="View"><i class="fa fa-eye"></i></a> -->
+                                                <a href="#" class="btn btn-sm btn-danger js-sweetalert" data-type="confirm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                        $i++;
+                                        ?>
+                                        @endforeach
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
                     </div>
                     <!-- Table End-->
 
-                    <!-- Pagination showing Entries start-->
+
                     <div class="col-lg-12">
                         <div class="body">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <p>Showing 1 to 1 of 1 entries</p>
-                                </div>
-                                <!-- Pagination showing Entries End-->
 
                                 <!-- Pagination Start-->
-                                
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
                                     <nav aria-label="...">
-                                    {{ $experts->links('layouts.pagination') }}
-                                      
-
+                                        {{ $experts->links('layouts.pagination') }}
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Pagination End-->
+                <?php } else { ?>
+                    <div class="text-center">
+                        <img src="{{ asset('img/no-record.png') }}">
+                    </div>
+                <?php } ?>
                 </div>
             </div>
         </div>
