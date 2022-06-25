@@ -11,7 +11,7 @@
                     <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Our Experts</li>
                 </ul>
-                <a href="{{ url('admin/resources/experts/add') }}" class="btn btn-sm btn-primary" title="">Create New</a>
+                <a href="{{ url('admin/resources/experts/add') }}" class="btn btn-sm btn-primary">Create New</a>
             </div>
         </div>
     </div>
@@ -112,7 +112,7 @@
                     <!-- Pagination End-->
                 <?php } else { ?>
                     <div class="text-center">
-                        <img src="{{ asset('img/no-record.png') }}">
+                        <img src="{{URL::to('images/no-record.png')}}">
                     </div>
                 <?php } ?>
                 </div>

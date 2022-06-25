@@ -159,7 +159,7 @@
                        <div class="col-md-4 wow slideInUp" data-wow-delay="0.6s">
                             <div class="blog-item bg-light rounded overflow-hidden">
                                 <div class="embed-responsive">
-   					                <iframe class="embed-responsive-item"src="https://www.youtube.com/embed/BBJ-O-FP0-E?controls=0" width="400" height="250"></iframe> 
+   					                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/BBJ-O-FP0-E?controls=0" width="400" height="250"></iframe> 
 				                </div>
                                 <!--<div class="p-4">
                                     <div class="d-flex mb-3">

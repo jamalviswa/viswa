@@ -23,14 +23,14 @@
                         <h2>Add Our Videos</h2>
                     </div>
                     <div class="body">
-                        <form id="basic-form" action="" method="post" enctype="multipart/form-data">
+                        <form id="basic-form" action="{{ url('admin/resources/videos/store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label class="control-label">Title</label>
-                                        <input type="text" name="name" autocomplete="off" value="{{old('name')}}" class="form-control">
-                                        @error('name')
+                                        <input type="text" name="title" autocomplete="off" value="{{old('title')}}" class="form-control">
+                                        @error('title')
                                         <div class="text text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -38,8 +38,8 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label class="control-label">Video URL</label>
-                                        <input type="text" name="name" autocomplete="off" value="{{old('name')}}" class="form-control">
-                                        @error('name')
+                                        <input type="text" name="video_url" autocomplete="off" value="{{old('video_url')}}" class="form-control">
+                                        @error('video_url')
                                         <div class="text text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -47,7 +47,7 @@
                             </div>
                             <br>
                             <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                            <a href="{{ url('admin/resources/videos/index') }}" class="btn btn-sm btn-danger" title="">Cancel</a>
+                            <a href="{{ url('admin/resources/videos/index') }}" class="btn btn-sm btn-danger">Cancel</a>
                         </form>
                     </div>
                 </div>
