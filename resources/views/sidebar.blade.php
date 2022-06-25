@@ -20,22 +20,95 @@
          </div>
          <nav id="left-sidebar-nav" class="sidebar-nav">
              <ul id="main-menu" class="metismenu">
-                 <li class="{{ Request::is('admin/dashboard') ? 'active':'' }}"><a href="{{ url('admin/dashboard') }}"><i class="icon-home"></i><span>Dashboard</span></a></li>
-                 <li class="{{ Request::is('admin/sitesettings') ? 'active':'' }}"><a href="{{ url('admin/sitesettings') }}"><i class="icon-settings"></i><span>Site Settings</span></a></li>
-                 <li class="{{ Request::is('admin/resources/experts/index') || Request::is('admin/resources/experts/add') || Request::is('admin/resources/experts/edit') ? 'active':'' }}"><a href="{{ url('admin/resources/experts/index') }}"><i class="icon-users"></i><span>Our Experts</span></a></li>
-                 <li class="{{ Request::is('admin/about/index') || Request::is('admin/about/add') || Request::is('admin/about/edit') ? 'active':'' }}"><a href="{{ url('admin/about/index') }}"><i class="icon-user"></i><span>Our Clients</span></a></li>
-                 <li class="{{ Request::is('admin/resources/blogs/index') || Request::is('admin/resources/blogs/add') || Request::is('admin/resources/blogs/edit') ? 'active':'' }}"><a href="{{ url('admin/resources/blogs/index') }}"><i class="icon-globe"></i><span>Our Blogs</span></a></li>
-                 <li class="{{ Request::is('admin/contact/index') ? 'active':'' }}"><a href="{{ url('admin/contact/index') }}"><i class="icon-call-in"></i><span>Contact Enquiries</span></a></li>
-                 <li class=""><a href=""><i class="icon-folder"></i><span>Our Projects</span></a></li>
-                 <li class=""><a href=""><i class="icon-rocket"></i><span>Our Services</span></a></li>
-                 <li class=""><a href=""><i class="icon-picture"></i><span>Banner</span></a></li>
 
+                 <!--Dashboard-->
+                 <li class="{{ Request::is('admin/dashboard') ? 'active':'' }}">
+                     <a href="{{ url('admin/dashboard') }}">
+                         <i class="icon-home"></i>
+                         <span>Dashboard</span>
+                     </a>
+                 </li>
+
+                 <!--sitesettings-->
+                 <li class="{{ Request::is('admin/sitesettings') ? 'active':'' }}">
+                     <a href="{{ url('admin/sitesettings') }}">
+                         <i class="icon-settings"></i>
+                         <span>Site Settings</span>
+                     </a>
+                 </li>
+
+                 <!--Experts-->
+                 <li class="{{ Request::is('admin/resources/experts/index') || Request::is('admin/resources/experts/add') || Request::is('admin/resources/experts/edit') ? 'active':'' }}">
+                     <a href="{{ url('admin/resources/experts/index') }}">
+                         <i class="icon-users"></i>
+                         <span>Our Experts</span>
+                     </a>
+                 </li>
+
+                 <!--clients-->
+                 <li class="{{ Request::is('admin/about/index') || Request::is('admin/about/add') || Request::is('admin/about/edit') ? 'active':'' }}">
+                     <a href="{{ url('admin/about/index') }}">
+                         <i class="icon-user"></i>
+                         <span>Our Clients</span>
+                     </a>
+                 </li>
+
+                 <!--Blogs-->
+                 <li class="{{ Request::is('admin/resources/blogs/index') || Request::is('admin/resources/blogs/add') || Request::is('admin/resources/blogs/edit') ? 'active':'' }}">
+                     <a href="{{ url('admin/resources/blogs/index') }}">
+                         <i class="icon-globe"></i>
+                         <span>Our Blogs</span>
+                     </a>
+                 </li>
+
+                 <!--Services-->
+                 <li class="{{ Request::is('admin/services/index') || Request::is('admin/services/add') || Request::is('admin/services/edit') ? 'active':'' }}">
+                     <a href="{{ url('admin/services/index') }}">
+                         <i class="icon-rocket"></i>
+                         <span>Our Services</span>
+                     </a>
+                 </li>
+
+                 <!--Enquiries-->
+                 <li class="{{ Request::is('admin/contact/index') ? 'active':'' }}">
+                     <a href="{{ url('admin/contact/index') }}">
+                         <i class="icon-call-in"></i>
+                         <span>Contact Enquiries</span>
+                     </a>
+                 </li>
+
+                 <!--Videos-->
+                 <li class="{{ Request::is('admin/resources/videos/index') || Request::is('admin/resources/videos/add') || Request::is('admin/resources/videos/edit') ? 'active':'' }}">
+                     <a href="{{ url('admin/resources/videos/index') }}">
+                         <i class="icon-social-youtube"></i>
+                         <span>Our Videos</span>
+                     </a>
+                 </li>
+
+                 <!--Projects-->
+                 <li class="{{ Request::is('admin/products/index') || Request::is('admin/products/add') || Request::is('admin/products/edit') ? 'active':'' }}">
+                     <a href="{{ url('admin/products/index') }}">
+                         <i class="icon-folder"></i>
+                         <span>Our Projects</span>
+                     </a>
+                 </li>
+
+                 <!--Banner-->
+                 <li class="">
+                     <a href="">
+                         <i class="icon-picture"></i>
+                         <span>Banner</span>
+                     </a>
+                 </li>
+
+                 <!--Master Files-->
                  <li class="{{ Request::is('admin/resources/index') || Request::is('admin/resources/add') ? 'active':'' }}">
                      <a href="#Tables" class="has-arrow"><i class="icon-folder-alt"></i><span>Master</span></a>
                      <ul>
                          <li class="{{ Request::is('admin/resources/index') || Request::is('admin/resources/add') ? 'active':'' }}"><a href="{{ url('admin/resources/index') }}">Service Categories</a></li>
                      </ul>
                  </li>
+
              </ul>
          </nav>
      </div>

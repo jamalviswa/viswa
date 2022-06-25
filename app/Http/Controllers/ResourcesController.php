@@ -9,14 +9,24 @@ use Image;
 
 class ResourcesController extends Controller
 {
-    public function index(){
+    public function admin_index(){
 
-        return view('resources.index');
+        return view('resources.admin_index');
     }
-    public function add(){
+    public function admin_add(){
 
-        return view('resources.add');
+        return view('resources.admin_add');
     }
+
+    public function videos_index(){
+
+        return view('resources.videos_index');
+    }
+    public function videos_add(){
+
+        return view('resources.videos_add');
+    }
+
     public function blogs(){
 
         return view('resources.blogs');
@@ -24,6 +34,16 @@ class ResourcesController extends Controller
     public function videos(){
 
         return view('resources.videos');
+    }
+
+    public function blogs_index(){
+
+        return view('resources.blogs_index');
+    }
+
+    public function blogs_add(){
+
+        return view('resources.blogs_add');
     }
 
     public function experts_index(){

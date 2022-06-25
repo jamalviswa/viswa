@@ -10,4 +10,14 @@ class ProductController extends Controller
 
         return view('product.index');
     }
+
+    public function admin_index(){
+
+        return view('product.admin_index');
+    }
+
+    public function admin_add(){
+
+        return view('product.admin_add');
+    }
 }

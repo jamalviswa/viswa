@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/admin/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/admin/vendor/chartist/css/chartist.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/admin/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/admin/vendor/toastr/toastr.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ URL::asset('css/admin/vendor/toastr/toastr.min.css') }}"> -->
 
 
     <!-- MAIN CSS -->
@@ -59,7 +59,7 @@
 
     <script src="{{ URL::asset('css/admin/bundles/c3.bundle.js') }}"></script>
     <script src="{{ URL::asset('css/admin/bundles/chartist.bundle.js') }}"></script>
-    <script src="{{ URL::asset('css/admin/vendor/toastr/toastr.js') }}"></script>
+    <!-- <script src="{{ URL::asset('css/admin/vendor/toastr/toastr.js') }}"></script> -->
     <!-- <script src="{{ URL::asset('css/admin/vendor/dropify/js/dropify.min.js') }}"></script> -->
 
     <script src="{{ URL::asset('css/admin/js/sweetalert.min.js') }}"></script>
@@ -67,6 +67,9 @@
     <script src="{{ URL::asset('css/admin/bundles/mainscripts.bundle.js') }}"></script>
     <script src="{{ URL::asset('css/admin/js/index.js') }}"></script>
     <!-- <script src="{{ URL::asset('css/admin/js/pages/forms/dropify.js') }}"></script> -->
+
+    <script src="{{ URL::asset('css/admin/vendor/ckeditor/ckeditor.js') }}"></script><!-- Ckeditor --> 
+    <script src="{{ URL::asset('css/admin/js/pages/forms/editors.js') }}"></script>
 
     <?php
     if (session()->has('message')) {
