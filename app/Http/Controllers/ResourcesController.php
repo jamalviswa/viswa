@@ -58,12 +58,19 @@ class ResourcesController extends Controller
         return \Redirect::route('resources.admin_index', []);
     }
 
-    public function admin_edit($id)
+    public function admin_edit($id = null)
     {
-      
+        $detail = Category::where('id', '=', $id)->first();
+        return view('resources/admin_edit', ['detail' => $detail]);
     }
 
-    public function admin_delete($id)
+    public function admin_update(Request $request,$id = null)
+    {
+        $detail = Category::where('id', '=', $id)->first();
+        return view('resources/admin_edit', ['detail' => $detail]);
+    }
+
+    public function admin_delete($id = null)
     {
         $data = Category::find($id);
         $destination = 'images/categories/'.$data->category_image;
