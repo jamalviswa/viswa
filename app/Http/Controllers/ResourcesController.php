@@ -2,23 +2,79 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\Expert;
 use App\Models\Video;
+use App\Models\Category;
 use Session;
 use Image;
 
 class ResourcesController extends Controller
 {
+    //Service Categories Index Section
     public function admin_index()
     {
-
-        return view('resources.admin_index');
+        $categories = Category::where('status', '<>', 'Trash')->orderBy('id', 'desc');
+        if (!empty($_REQUEST['s'])) {
+            $s = $_REQUEST['s'];
+            $categories->where(function ($query) use ($s) {
+                $query->where('category_name', 'LIKE', "%$s%");
+            });
+        }
+        $categories = $categories->paginate(10);
+        return view('resources.admin_index', ['categories' => $categories]);
     }
+
+    //Service Categories Add Section
     public function admin_add()
     {
-
         return view('resources.admin_add');
+    }
+    public function admin_store(Request $request)
+    {
+        $validateData = $request->validate([
+            'category_image' => 'required||mimes:jpg,jpeg,png',
+            'category_name' => ['required', Rule::unique('categories')->where(function ($query) use ($request) {
+                return $query->where('category_name', $request->category_name)->where('status', '<>', 'Trash');
+            })],
+        ]);
+        $categories = new Category();
+        $categories->category_name = $request->category_name;
+        if ($request->hasFile('category_image')) {
+            $image = $request->file('category_image');
+            $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(16, 16);
+            $destination_path = public_path('/images/categories/');
+            $image_resize->save($destination_path . $new_image1);
+            $categories->category_image = $new_image1;
+        }
+        $categories->status = "Active";
+        $categories->save();
+        Session::flash('message', 'Category Added!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.admin_index', []);
+    }
+
+    public function admin_edit($id)
+    {
+      
+    }
+
+    public function admin_delete($id)
+    {
+        $data = Category::find($id);
+        $destination = 'images/categories/'.$data->category_image;
+        if(File::exists($destination))
+        {
+            File::delete($destination);
+        }
+        $data->delete();
+        Session::flash('message', 'Deleted Sucessfully!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.admin_index', []);
     }
 
     //Index of Videos

@@ -68,7 +68,7 @@
     <script src="{{ URL::asset('css/admin/js/index.js') }}"></script>
     <!-- <script src="{{ URL::asset('css/admin/js/pages/forms/dropify.js') }}"></script> -->
 
-    <script src="{{ URL::asset('css/admin/vendor/ckeditor/ckeditor.js') }}"></script><!-- Ckeditor --> 
+    <script src="{{ URL::asset('css/admin/vendor/ckeditor/ckeditor.js') }}"></script><!-- Ckeditor -->
     <script src="{{ URL::asset('css/admin/js/pages/forms/editors.js') }}"></script>
 
     <?php
@@ -88,6 +88,31 @@
         </script>
     <?php }
     ?>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        @csrf
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are You Sure, Do you want Delete this Record?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <a class="btn btn-primary" href="javascript:;">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).on('click', '.delete', function(e) {
+            e.preventDefault();
+            $('#deleteModal').modal('show');
+            $('#deleteModal').find('.btn-primary').attr('href', $(this).attr('href'));
+        });
+    </script>
 </body>
 
 </html>

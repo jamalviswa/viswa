@@ -60,9 +60,12 @@ Route::any('/resources/blogs/add', [ResourcesController::class,'blogs_add']);
 Route::any('/resources/blogs/edit', [ResourcesController::class,'blogs_edit']);
 
 //Sevice Categories
-Route::get('/resources/index', [ResourcesController::class,'admin_index']);
-Route::get('/resources/add', [ResourcesController::class,'admin_add']);
-Route::post('/resources/store', [ResourcesController::class,'admin_store']);
+Route::get('/resources/index', [ResourcesController::class,'admin_index'])->name('resources.admin_index');
+Route::get('/resources/add', [ResourcesController::class,'admin_add'])->name('resources.admin_add');
+Route::post('/resources/store', [ResourcesController::class,'admin_store'])->name('resources.admin_store');
+Route::get('/resources/edit/{id}', [ResourcesController::class,'admin_edit'])->name('resources.admin_edit');
+Route::post('/resources/update/{id}', [ResourcesController::class,'admin_update'])->name('resources.admin_update');
+Route::get('/resources/delete/{id}', [ResourcesController::class,'admin_delete'])->name('resources.admin_delete');
 
 //Our Services
 Route::get('/services/index', [ServicesController::class,'admin_index']);

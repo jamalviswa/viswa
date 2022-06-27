@@ -11,7 +11,7 @@
                     <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Add Service Category</li>
                 </ul>
-                <a href="{{ url('admin/resources/index') }}" class="btn btn-sm btn-primary" title="">Back To List</a>
+                <a href="{{ url('admin/resources/index') }}" class="btn btn-sm btn-primary">Back To List</a>
             </div>
         </div>
     </div>
@@ -29,8 +29,8 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label class="control-label">Category Name</label>
-                                        <input type="text" name="name" autocomplete="off" value="{{old('name')}}" class="form-control">
-                                        @error('name')
+                                        <input type="text" name="category_name" autocomplete="off" value="{{old('category_name')}}" class="form-control">
+                                        @error('category_name')
                                         <div class="text text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -38,8 +38,8 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label class="control-label">Image</label>
-                                        <input type="file" class="form-control" name="image">
-                                        @error('image')
+                                        <input type="file" class="form-control" name="category_image">
+                                        @error('category_image')
                                         <div class="text text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
