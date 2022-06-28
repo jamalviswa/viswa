@@ -64,7 +64,7 @@ Route::get('/resources/index', [ResourcesController::class,'admin_index'])->name
 Route::get('/resources/add', [ResourcesController::class,'admin_add'])->name('resources.admin_add');
 Route::post('/resources/store', [ResourcesController::class,'admin_store'])->name('resources.admin_store');
 Route::get('/resources/edit/{id}', [ResourcesController::class,'admin_edit'])->name('resources.admin_edit');
-Route::post('/resources/update/{id}', [ResourcesController::class,'admin_update'])->name('resources.admin_update');
+Route::post('/resources/update', [ResourcesController::class,'admin_update'])->name('resources.admin_update');
 Route::get('/resources/delete/{id}', [ResourcesController::class,'admin_delete'])->name('resources.admin_delete');
 
 //Our Services

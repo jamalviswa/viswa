@@ -60,20 +60,40 @@ class ResourcesController extends Controller
 
     public function admin_edit($id = null)
     {
-        $detail = Category::where('id', '=', $id)->first();
+        $detail = Category::find($id);
         return view('resources/admin_edit', ['detail' => $detail]);
     }
 
-    public function admin_update(Request $request,$id = null)
+    public function admin_update(Request $request)
     {
-        $detail = Category::where('id', '=', $id)->first();
-        return view('resources/admin_edit', ['detail' => $detail]);
+        $id = $request->id;
+        $validateData = $request->validate([
+            'category_name' => ['required', Rule::unique('categories')->where(function ($query) use ($request, $id) {
+                return $query->where('category_name', $request->category_name)->where('id', '<>', $id)->where('status', '<>', 'Trash');
+            })],
+        ]);
+        $categories = Category::find($id);
+        $categories->category_name = $request->category_name;
+        if ($request->hasFile('category_image')) {
+            $image = $request->file('category_image');
+            $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(16, 16);
+            $destination_path = public_path('/images/categories/');
+            $image_resize->save($destination_path . $new_image1);
+            $categories->category_image = $new_image1;
+        }
+        $categories->status = "Active";
+        $categories->save();
+        Session::flash('message', 'Category Updated!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.admin_index', []);
     }
 
     public function admin_delete($id = null)
     {
         $data = Category::find($id);
-        $destination = 'images/categories/'.$data->category_image;
+        $destination = public_path('images/categories/'.$data->category_image);
         if(File::exists($destination))
         {
             File::delete($destination);

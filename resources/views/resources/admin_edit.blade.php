@@ -23,8 +23,9 @@
                         <h2>Edit Service Category</h2>
                     </div>
                     <div class="body">
-                        <form id="basic-form" action="{{ url('admin/resources/update',$detail['id']) }}" method="post" enctype="multipart/form-data">
+                        <form id="basic-form" action="{{ url('admin/resources/update') }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="id" value="{{$detail['id']}}">
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
@@ -39,9 +40,10 @@
                                     <div class="form-group">
                                         <label class="control-label">Image</label>
                                         <input type="file" class="form-control" name="category_image">
-                                        @error('category_image')
-                                        <div class="text text-danger">{{ $message }}</div>
-                                        @enderror
+                                        @if(!empty($detail['category_image']))
+                                        <a href="{{URL::to('images/categories/'.$detail['category_image'].'')}}" target="_blank"><img src="{{URL::to('images/categories/'.$detail['category_image'].'')}}" class="avatar" width="50" height="50" />
+                                        </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
