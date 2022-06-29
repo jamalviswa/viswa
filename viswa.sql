@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2022 at 01:57 PM
+-- Generation Time: Jun 29, 2022 at 01:47 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,54 @@ SET time_zone = "+00:00";
 --
 -- Database: `viswa`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `category` int(11) DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `addedby` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('Active','Trash') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `category_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('Active','Trash') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `category_name`, `category_image`, `status`, `created_at`, `updated_at`) VALUES
+(8, 'Web Design & Development', '2022-06-28-1656417603.png', 'Active', '2022-06-28 12:00:03', '2022-06-28 12:00:03'),
+(9, 'App Development', '2022-06-28-1656417623.png', 'Active', '2022-06-28 12:00:23', '2022-06-28 12:00:23'),
+(10, 'Graphic Design', '2022-06-28-1656417654.png', 'Active', '2022-06-28 12:00:54', '2022-06-28 12:00:54'),
+(11, 'Digital Marketing', '2022-06-28-1656417682.png', 'Active', '2022-06-28 12:01:22', '2022-06-28 12:01:22'),
+(12, 'E-Commerce Solution', '2022-06-28-1656417700.png', 'Active', '2022-06-28 12:01:40', '2022-06-28 12:01:40'),
+(13, 'Hosting', '2022-06-28-1656417717.png', 'Active', '2022-06-28 12:01:57', '2022-06-28 12:01:57'),
+(14, 'Software Development', '2022-06-28-1656417734.png', 'Active', '2022-06-28 12:02:14', '2022-06-28 12:02:14'),
+(15, 'Message Provider', '2022-06-28-1656418123.png', 'Active', '2022-06-28 12:02:31', '2022-06-28 12:08:43');
 
 -- --------------------------------------------------------
 
@@ -54,6 +102,13 @@ CREATE TABLE `experts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `experts`
+--
+
+INSERT INTO `experts` (`id`, `name`, `position`, `image`, `twitter`, `facebook`, `linkedin`, `instagram`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ffd', 'fdfdf', '2022-06-27-1656305243.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-06-27 04:47:23', '2022-06-27 04:47:23');
 
 -- --------------------------------------------------------
 
@@ -94,7 +149,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2022_06_21_121300_create_experts_table', 1),
 (6, '2022_06_23_102450_create_clients_table', 1),
-(7, '2022_06_25_155243_create_videos_table', 2);
+(7, '2022_06_25_155243_create_videos_table', 2),
+(8, '2022_06_27_094106_create_blogs_table', 3),
+(10, '2022_06_27_095645_create_categories_table', 4);
 
 -- --------------------------------------------------------
 
@@ -173,6 +230,18 @@ INSERT INTO `videos` (`id`, `title`, `video_url`, `added_by`, `status`, `created
 --
 
 --
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `clients`
 --
 ALTER TABLE `clients`
@@ -229,6 +298,18 @@ ALTER TABLE `videos`
 --
 
 --
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
@@ -238,7 +319,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `experts`
 --
 ALTER TABLE `experts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -250,7 +331,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
