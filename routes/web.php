@@ -46,7 +46,9 @@ Route::any('/sitesettings',[SitesettingsController::class,'index']);
 Route::get('/resources/experts/index', [ResourcesController::class,'experts_index'])->name('resources.experts_index');
 Route::get('/resources/experts/add', [ResourcesController::class,'experts_add'])->name('resources.experts_add');
 Route::post('/resources/experts/store', [ResourcesController::class,'experts_store'])->name('resources.experts_store');
-Route::any('/resources/experts/edit', [ResourcesController::class,'experts_edit']);
+Route::get('/resources/experts/edit/{id}', [ResourcesController::class,'experts_edit'])->name('resources.experts_edit');
+Route::post('/resources/experts/update', [ResourcesController::class,'experts_update'])->name('resources.experts_update');
+Route::get('/resources/experts/delete/{id}', [ResourcesController::class,'experts_delete'])->name('resources.experts_delete');
 
 //Our Clients
 Route::get('/about/index', [AboutController::class,'admin_index'])->name('about.admin_index');

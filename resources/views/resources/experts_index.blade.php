@@ -24,17 +24,18 @@
 
                     </div>
                     <div class="body">
+                   
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-12">
-                                <form>
+                            <form method="GET" action="#">
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Search...">
+                                            <input type="text" name="s" class="form-control" placeholder="Search..." autocomplete="off" @if(isset($_REQUEST['s'])) value="{{ $_REQUEST['s'] }}" @else value="" @endif>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
-                                            <button type="button" class="btn btn-success"><i class="icon-magnifier"></i></button>
+                                            <button type="submit" class="btn btn-success" name="search"><i class="icon-magnifier"></i></button>
                                             @if (isset($_REQUEST['search']))
                                             <a href="{{ url('admin/resources/experts/index') }}" class="btn btn-danger"><i class="icon-close"></i></a>
                                             @endif
@@ -48,7 +49,7 @@
 
                     <!-- Table Start-->
                     <div class="body">
-                        <?php if ($experts->count() > '0') { ?>
+                    <?php if ($experts->count() > '0') { ?>
                             <div class="table-responsive">
                                 <table class="table table-hover m-b-0 c_list">
                                     <thead class="thead-dark">
@@ -77,9 +78,8 @@
                                                 <p class="c_name">{{$expert->position}}</p>
                                             </td>
                                             <td>
-                                                <a href="{{ url('admin/resources/experts/edit') }}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-edit"></i></a>
-                                                <!-- <a href="{{ url('admin/resources/experts/view') }}" class="btn btn-sm btn-success" title="View"><i class="fa fa-eye"></i></a> -->
-                                                <a href="#" class="btn btn-sm btn-danger js-sweetalert" data-type="confirm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                            <a type="button" class="btn btn-info" href="{{ route('resources.experts_edit', $expert['id']) }}" title="Edit"><i class="fa fa-edit"></i></a>
+                                            <a rel="tooltip" data-value="{{$expert['id']}}" href="{{ route('resources.experts_delete',$expert['id']) }}" class="delete btn btn-danger" title="Delete"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>
                                         <?php

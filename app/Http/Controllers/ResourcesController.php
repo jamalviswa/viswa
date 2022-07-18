@@ -171,14 +171,21 @@ class ResourcesController extends Controller
         return view('resources.blogs_add');
     }
 
+
     public function experts_index()
     {
-
-        $experts = Expert::paginate(3);
-        //return $experts;
-        //$experts = $experts->paginate(3);
+        $experts = Expert::where('status', '<>', 'Trash')->orderBy('id', 'desc');
+        if (!empty($_REQUEST['s'])) {
+            $s = $_REQUEST['s'];
+            $experts->where(function ($query) use ($s) {
+                $query->where('name', 'LIKE', "%$s%");
+            });
+        }
+        $experts = $experts->paginate(10);
         return view('resources.experts_index', ['experts' => $experts]);
     }
+
+
     public function experts_add()
     {
 
@@ -188,9 +195,11 @@ class ResourcesController extends Controller
     {
 
         $validateData = $request->validate([
-            'name' => 'required',
             'position' => 'required',
-            'image' => 'required||mimes:jpg,jpeg,png'
+            'image' => 'required||mimes:jpg,jpeg,png',
+            'name' => ['required', Rule::unique('experts')->where(function ($query) use ($request) {
+                return $query->where('name', $request->name)->where('status', '<>', 'Trash');
+            })],
         ]);
         $experts = new Expert();
         $experts->name = $request->name;
@@ -215,9 +224,55 @@ class ResourcesController extends Controller
         return \Redirect::route('resources.experts_index', []);
     }
 
-    public function experts_edit()
+    public function experts_edit($id = null)
     {
+        $detail = Expert::find($id);
+        return view('resources/experts_edit', ['detail' => $detail]);
+    }
 
-        return view('resources.experts_edit');
+    public function experts_update(Request $request)
+    {
+        $id = $request->id;
+        $validateData = $request->validate([
+            'name' => 'required',
+            'position' => 'required',
+            'image' => 'required||mimes:jpg,jpeg,png'
+            
+        ]);
+        $categories = Expert::find($id);
+        $categories->name = $request->name;
+        $categories->position = $request->position;
+        $categories->twitter = $request->twitter;
+        $categories->facebook = $request->facebook;
+        $categories->linkedin = $request->linkedin;
+        $categories->instagram = $request->instagram;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(250, 250);
+            $destination_path = public_path('/images/experts/');
+            $image_resize->save($destination_path . $new_image1);
+            $categories->image = $new_image1;
+        }
+        $categories->status = "Active";
+        $categories->save();
+        Session::flash('message', 'Experts Details Updated!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.experts_index', []);
+    }
+
+    public function experts_delete($id = null)
+    {
+        $data = Expert::find($id);
+        $destination = public_path('images/experts/'.$data->image);
+        if(File::exists($destination))
+        {
+            File::delete($destination);
+        }
+        $data->delete();
+        Session::flash('message', 'Deleted Sucessfully!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.experts_index', []);
     }
 }

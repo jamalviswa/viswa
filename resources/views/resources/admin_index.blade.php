@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-6 col-sm-12 text-right">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Service Category</li>
                 </ul>
                 <a href="{{ url('admin/resources/add') }}" class="btn btn-sm btn-primary" title="">Create New</a>
@@ -88,10 +88,10 @@
                     </div>
                     <!-- Table End-->
 
-                    <!-- Pagination showing Entries start-->
                     <div class="col-lg-12">
                         <div class="body">
                             <div class="row">
+                                
                                 <!-- Pagination Start-->
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <nav aria-label="...">
