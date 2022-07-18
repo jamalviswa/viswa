@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2022 at 01:47 PM
+-- Generation Time: Jul 18, 2022 at 02:24 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.27
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -108,7 +108,7 @@ CREATE TABLE `experts` (
 --
 
 INSERT INTO `experts` (`id`, `name`, `position`, `image`, `twitter`, `facebook`, `linkedin`, `instagram`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'ffd', 'fdfdf', '2022-06-27-1656305243.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-06-27 04:47:23', '2022-06-27 04:47:23');
+(2, 'Jamal Ahamed', 'Web Developer', '2022-07-18-1658132322.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-07-18 08:18:42', '2022-07-18 08:18:42');
 
 -- --------------------------------------------------------
 
@@ -151,7 +151,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2022_06_23_102450_create_clients_table', 1),
 (7, '2022_06_25_155243_create_videos_table', 2),
 (8, '2022_06_27_094106_create_blogs_table', 3),
-(10, '2022_06_27_095645_create_categories_table', 4);
+(10, '2022_06_27_095645_create_categories_table', 4),
+(11, '2022_07_18_173111_create_sitesettings_table', 5);
 
 -- --------------------------------------------------------
 
@@ -179,6 +180,35 @@ CREATE TABLE `personal_access_tokens` (
   `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sitesettings`
+--
+
+CREATE TABLE `sitesettings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `site_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keywords` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `favicon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telephone_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `map_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `whatsapp_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instagram_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('Active','Trash') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -281,6 +311,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `sitesettings`
+--
+ALTER TABLE `sitesettings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -319,7 +355,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `experts`
 --
 ALTER TABLE `experts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -331,12 +367,18 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sitesettings`
+--
+ALTER TABLE `sitesettings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
