@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2022 at 02:24 PM
+-- Generation Time: Jul 27, 2022 at 01:55 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -67,7 +67,7 @@ INSERT INTO `categories` (`id`, `category_name`, `category_image`, `status`, `cr
 (12, 'E-Commerce Solution', '2022-06-28-1656417700.png', 'Active', '2022-06-28 12:01:40', '2022-06-28 12:01:40'),
 (13, 'Hosting', '2022-06-28-1656417717.png', 'Active', '2022-06-28 12:01:57', '2022-06-28 12:01:57'),
 (14, 'Software Development', '2022-06-28-1656417734.png', 'Active', '2022-06-28 12:02:14', '2022-06-28 12:02:14'),
-(15, 'Message Provider', '2022-06-28-1656418123.png', 'Active', '2022-06-28 12:02:31', '2022-06-28 12:08:43');
+(15, 'Message Provider', '2022-06-28-1656418123.png', 'Active', '2022-06-28 12:02:31', '2022-07-27 04:18:56');
 
 -- --------------------------------------------------------
 
@@ -82,6 +82,26 @@ CREATE TABLE `clients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(1, '2022-07-27-1658917448.png', 'Active', '2022-07-27 10:24:09', '2022-07-27 10:24:09'),
+(2, '2022-07-27-1658917468.png', 'Active', '2022-07-27 10:24:28', '2022-07-27 10:24:28'),
+(3, '2022-07-27-1658917475.png', 'Active', '2022-07-27 10:24:35', '2022-07-27 10:24:35'),
+(4, '2022-07-27-1658917483.png', 'Active', '2022-07-27 10:24:43', '2022-07-27 10:24:43'),
+(5, '2022-07-27-1658917490.png', 'Active', '2022-07-27 10:24:50', '2022-07-27 10:24:50'),
+(7, '2022-07-27-1658917511.png', 'Active', '2022-07-27 10:25:11', '2022-07-27 10:25:11'),
+(8, '2022-07-27-1658917518.png', 'Active', '2022-07-27 10:25:18', '2022-07-27 10:25:18'),
+(9, '2022-07-27-1658917525.png', 'Active', '2022-07-27 10:25:25', '2022-07-27 10:25:25'),
+(10, '2022-07-27-1658917536.png', 'Active', '2022-07-27 10:25:36', '2022-07-27 10:25:36'),
+(11, '2022-07-27-1658917544.png', 'Active', '2022-07-27 10:25:44', '2022-07-27 10:25:44'),
+(12, '2022-07-27-1658917558.png', 'Active', '2022-07-27 10:25:58', '2022-07-27 10:25:58'),
+(13, '2022-07-27-1658917571.png', 'Active', '2022-07-27 10:26:11', '2022-07-27 10:26:11'),
+(14, '2022-07-27-1658917578.png', 'Active', '2022-07-27 10:26:18', '2022-07-27 10:26:18'),
+(15, '2022-07-27-1658917586.png', 'Active', '2022-07-27 10:26:26', '2022-07-27 10:26:26');
 
 -- --------------------------------------------------------
 
@@ -108,7 +128,12 @@ CREATE TABLE `experts` (
 --
 
 INSERT INTO `experts` (`id`, `name`, `position`, `image`, `twitter`, `facebook`, `linkedin`, `instagram`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Jamal Ahamed', 'Web Developer', '2022-07-18-1658132322.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-07-18 08:18:42', '2022-07-18 08:18:42');
+(3, 'M.Bremi Nivedhaa', 'App Developer', '2022-07-27-1658895184.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-07-27 04:13:04', '2022-07-27 04:13:04'),
+(4, 'L.Naveen', 'Graphic Designer', '2022-07-27-1658895266.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-07-27 04:14:26', '2022-07-27 04:14:26'),
+(5, 'M.Mariyappan', 'Digital Marketing', '2022-07-27-1658895318.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-07-27 04:15:18', '2022-07-27 04:15:18'),
+(6, 'R.Divya', 'Web Developer', '2022-07-27-1658895356.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-07-27 04:15:56', '2022-07-27 04:15:56'),
+(7, 'K.Jamal Ahamed', 'Web Developer', '2022-07-27-1658895387.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-07-27 04:16:27', '2022-07-27 04:16:27'),
+(8, 'G.winson', 'Web Developer', '2022-07-27-1658895411.jpg', NULL, NULL, NULL, NULL, 'Active', '2022-07-27 04:16:51', '2022-07-27 04:16:51');
 
 -- --------------------------------------------------------
 
@@ -349,13 +374,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `experts`
 --
 ALTER TABLE `experts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

@@ -35,7 +35,7 @@ Route::get('/contact', [ContactController::class,'index']);
 Route::prefix('admin')->group(function(){
 Route::any('/', [AdminusersController::class,'login']);
 Route::any('/login', [AdminusersController::class,'login']);
-Route::any('/dashboard', [AdminusersController::class,'dashboard']);
+Route::any('/dashboard', [AdminusersController::class,'dashboard'])->name('adminusers.dashboard');
 Route::any('/profile', [AdminusersController::class,'profile']);
 Route::any('/forgot', [AdminusersController::class,'forgot']);
 
@@ -54,7 +54,9 @@ Route::get('/resources/experts/delete/{id}', [ResourcesController::class,'expert
 Route::get('/about/index', [AboutController::class,'admin_index'])->name('about.admin_index');
 Route::get('/about/add', [AboutController::class,'admin_add'])->name('about.admin_add');
 Route::post('/about/store', [AboutController::class,'admin_store'])->name('about.admin_store');
-Route::any('/about/edit', [AboutController::class,'admin_edit']);
+Route::get('/about/edit/{id}', [AboutController::class,'admin_edit'])->name('about.admin_edit');
+Route::post('/about/update/{id}', [AboutController::class,'admin_update'])->name('about.admin_update');
+Route::get('/about/delete/{id}', [AboutController::class,'admin_delete'])->name('about.admin_delete');
 
 //Our Blogs
 Route::get('/resources/blogs/index', [ResourcesController::class,'blogs_index']);

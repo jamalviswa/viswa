@@ -47,7 +47,7 @@
                             </div>
                             <br>
                             <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                            <a href="{{ url('admin/resources/index') }}" class="btn btn-sm btn-danger" title="">Cancel</a>
+                            <a href="{{ url('admin/resources/index') }}" class="btn btn-sm btn-danger">Cancel</a>
                         </form>
                     </div>
                 </div>
