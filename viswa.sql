@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2022 at 01:55 PM
+-- Generation Time: Jul 28, 2022 at 01:56 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -238,6 +238,13 @@ CREATE TABLE `sitesettings` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `sitesettings`
+--
+
+INSERT INTO `sitesettings` (`id`, `site_title`, `meta_description`, `meta_keywords`, `logo`, `favicon`, `mobile_number`, `telephone_number`, `email`, `alt_email`, `address`, `map_url`, `facebook_url`, `whatsapp_url`, `linkedin_url`, `instagram_url`, `twitter_url`, `status`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -404,7 +411,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `sitesettings`
 --
 ALTER TABLE `sitesettings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

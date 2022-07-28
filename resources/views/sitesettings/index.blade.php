@@ -29,7 +29,7 @@
                         <h2>Edit Site Settings</h2>
                     </div>
                     <div class="body">
-                        <form method="post">
+                        <form id="basic-form" action="{{ route('sitesettings.update',$detail['id']) }}" method="post" enctype="multipart/form-data">
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
@@ -52,10 +52,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="control-label">Logo</label>
-                                        <div class="custom-file">
-
-                                            <input type="file" class="form-control custom-file-input" id="inputGroupFile01">
-                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            <input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp">
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +172,7 @@
             </div>
         </div>
     </div>
-     <!-- Edit Sitesettings Section End-->
+    <!-- Edit Sitesettings Section End-->
 
 </div>
 <!-- Main Content End-->

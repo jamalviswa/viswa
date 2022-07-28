@@ -40,7 +40,8 @@ Route::any('/profile', [AdminusersController::class,'profile']);
 Route::any('/forgot', [AdminusersController::class,'forgot']);
 
 //Sitesettings
-Route::any('/sitesettings',[SitesettingsController::class,'index']);
+Route::get('/sitesettings',[SitesettingsController::class,'index'])->name('sitesettings.index');
+Route::post('/sitesettings/update/{id}', [SitesettingsController::class,'update'])->name('sitesettings.update');
 
 //Our Experts
 Route::get('/resources/experts/index', [ResourcesController::class,'experts_index'])->name('resources.experts_index');
