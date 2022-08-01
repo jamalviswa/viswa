@@ -108,12 +108,6 @@ class ResourcesController extends Controller
     public function videos_index()
     {
         $videos = Video::where('status', '<>', 'Trash')->orderBy('id', 'desc');
-        if (!empty($_REQUEST['s'])) {
-            $s = $_REQUEST['s'];
-            $videos->where(function ($query) use ($s) {
-                $query->where('title', 'LIKE', "%$s%");
-            });
-        }
         $videos = $videos->paginate(10);
         return view('resources.videos_index', ['videos' => $videos]);
     }
@@ -128,11 +122,9 @@ class ResourcesController extends Controller
     public function videos_store(Request $request)
     {
         $validateData = $request->validate([
-            'title' => 'required',
             'video_url' => 'required'
         ]);
         $videos = new Video();
-        $videos->title = $request->title;
         $videos->video_url = $request->video_url;
         $videos->status = "Active";
         $videos->save();
@@ -141,10 +133,34 @@ class ResourcesController extends Controller
         return \Redirect::route('resources.videos_index', []);
     }
 
-    public function videos_delete()
+    public function videos_edit($id = null)
     {
+        $detail = Video::where('id', '=', $id)->first();
+        return view('resources.videos_edit', ['detail' => $detail]);
+    }
 
-        return view('resources.experts_edit');
+    public function videos_update(Request $request,$id = null)
+    {
+        $validateData = $request->validate([
+            'video_url' => 'required'
+        ]);
+        $videos = Video::find($id);
+        $videos->video_url = $request->video_url;
+        $videos->status = "Active";
+        $videos->save();
+        Session::flash('message', 'Videos Updated!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.videos_index', []);
+    }
+
+
+    public function videos_delete($id = null)
+    {
+        $data = Video::find($id);
+        $data->delete();
+        Session::flash('message', 'Deleted Sucessfully!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.videos_index', []);
     }
 
 

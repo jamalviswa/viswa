@@ -20,6 +20,7 @@ class SitesettingsController extends Controller
     public function update(Request $request,$id = null)
     {
         $validateData = $request->validate([
+            'site_title' => 'required',
             'image' => 'required||mimes:jpg,jpeg,png'
         ]);
         $sitesettings = Sitesetting::find($id);

@@ -81,6 +81,9 @@ Route::post('/services/store', [ServicesController::class,'admin_store']);
 Route::get('/resources/videos/index', [ResourcesController::class,'videos_index'])->name('resources.videos_index');
 Route::get('/resources/videos/add', [ResourcesController::class,'videos_add'])->name('resources.videos_add');
 Route::post('/resources/videos/store', [ResourcesController::class,'videos_store'])->name('resources.videos_store');
+Route::get('/resources/videos/edit/{id}', [ResourcesController::class,'videos_edit'])->name('resources.videos_edit');
+Route::post('/resources/videos/update/{id}', [ResourcesController::class,'videos_update'])->name('resources.videos_update');
+Route::get('/resources/videos/delete/{id}', [ResourcesController::class,'videos_delete'])->name('resources.videos_delete');
 
 //Our Projects
 Route::get('/products/index', [ProductController::class,'admin_index']);
