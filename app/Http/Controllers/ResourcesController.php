@@ -169,10 +169,12 @@ class ResourcesController extends Controller
 
         return view('resources.blogs');
     }
+
     public function videos()
     {
-
-        return view('resources.videos');
+        $videos = Video::where('status', '<>', 'Trash')->orderBy('id', 'desc');
+        $videos = $videos->paginate(12);
+        return view('resources.videos', ['videos' => $videos]);
     }
 
     public function blogs_index()

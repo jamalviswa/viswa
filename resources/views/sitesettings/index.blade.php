@@ -30,6 +30,7 @@
                     </div>
                     <div class="body">
                         <form id="basic-form" action="{{ route('sitesettings.update',$detail['id']) }}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
@@ -62,15 +63,13 @@
                                     <div class="form-group">
                                         <label class="control-label">Logo</label>
                                         <input type="file" class="form-control" name="logo">
-                                        @error('logo')
-                                        <div class="text text-danger">{{ $message }}</div>
-                                        @enderror
+                                       
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group m-t-20">
                                         @if(!empty($detail['logo']))
-                                        <a href="{{URL::to('images/'.$detail['logo'].'')}}" target="_blank"><img src="{{URL::to('images/'.$detail['logo'].'')}}" width="50" height="50" />
+                                        <a href="{{URL::to('images/sitesettings/'.$detail['logo'].'')}}" target="_blank"><img src="{{URL::to('images/sitesettings/'.$detail['logo'].'')}}" width="150" height="50" />
                                         </a>
                                         @endif
                                     </div>
@@ -79,15 +78,13 @@
                                     <div class="form-group">
                                         <label class="control-label">FavIcon</label>
                                         <input type="file" class="form-control" name="favicon">
-                                        @error('favicon ')
-                                        <div class="text text-danger">{{ $message }}</div>
-                                        @enderror
+                                       
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group m-t-20">
                                         @if(!empty($detail['favicon']))
-                                        <a href="{{URL::to('images/'.$detail['favicon'].'')}}" target="_blank"><img src="{{URL::to('images/'.$detail['favicon'].'')}}" width="48" height="48" />
+                                        <a href="{{URL::to('images/sitesettings/'.$detail['favicon'].'')}}" target="_blank"><img src="{{URL::to('images/sitesettings/'.$detail['favicon'].'')}}" width="48" height="48" />
                                         </a>
                                         @endif
                                     </div>
@@ -100,10 +97,10 @@
                                                 <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
                                             </div>
                                             <input type="text" name="mobile_number" autocomplete="off" value="{{$detail['mobile_number']}}" class="form-control">
-                                            @error('mobile_number')
-                                            <div class="text text-danger">{{ $message }}</div>
-                                            @enderror
                                         </div>
+                                        @error('mobile_number')
+                                        <div class="text text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -114,10 +111,10 @@
                                                 <span class="input-group-text"><i class="fa fa-phone"></i></span>
                                             </div>
                                             <input type="text" name="telephone_number" autocomplete="off" value="{{$detail['telephone_number']}}" class="form-control">
-                                            @error('telephone_number')
-                                            <div class="text text-danger">{{ $message }}</div>
-                                            @enderror
                                         </div>
+                                        @error('telephone_number')
+                                        <div class="text text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -128,10 +125,10 @@
                                                 <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
                                             </div>
                                             <input type="text" name="email" autocomplete="off" value="{{$detail['email']}}" class="form-control">
-                                            @error('email')
-                                            <div class="text text-danger">{{ $message }}</div>
-                                            @enderror
                                         </div>
+                                        @error('email')
+                                        <div class="text text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -141,17 +138,20 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
                                             </div>
-                                            <input type="text" name="alt_email" autocomplete="off" value="{{$detail['alt_email']}}" class="form-control">
-                                            @error('alt_email')
-                                            <div class="text text-danger">{{ $message }}</div>
-                                            @enderror
+                                            <input type="text" name="alternate_email" autocomplete="off" value="{{$detail['alt_email']}}" class="form-control">
                                         </div>
+                                        @error('alternate_email')
+                                        <div class="text text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label class="control-label">Address</label>
-                                        <textarea class="form-control" rows="5" cols="30"></textarea>
+                                        <textarea class="form-control" rows="5" name="address" cols="30"><?php echo $detail['address'] ?></textarea>
+                                        @error('address')
+                                        <div class="text text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">

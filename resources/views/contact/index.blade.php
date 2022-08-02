@@ -1,6 +1,18 @@
 @extends('layouts.front')
 @section('content')
-<!-- Contact Section Start-->
+<!-- Banner Start -->
+<div class="container-fluid bg-primary py-5 bg-header6">
+    <div class="row py-5">
+        <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+            <h1 class="display-4 text-white animated zoomIn"></h1>
+            <a href="" class="h5 text-white"></a>
+            <a href="" class="h5 text-white"></a>
+        </div>
+    </div>
+</div>
+<!-- Banner End -->
+
+<!-- Contact Start -->
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
@@ -70,5 +82,5 @@
         </div>
     </div>
 </div>
-<!-- Contact Section End-->
+<!-- Contact End -->
 @endsection
