@@ -22,15 +22,14 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminusersController;
 use App\Http\Controllers\SitesettingsController;
 
-
-Route::get('/', [HomeController::class,'index']);
-Route::get('/home', [HomeController::class,'index']);
-Route::get('/about', [AboutController::class,'index']);
-Route::get('/services', [ServicesController::class,'index']);
-Route::get('/portfolio', [ProductController::class,'index']);
-Route::get('/blogs', [ResourcesController::class,'blogs']);
-Route::get('/videos', [ResourcesController::class,'videos']);
-Route::get('/contact', [ContactController::class,'index']);
+//Website
+Route::get('/', [HomeController::class,'index'])->name('home.index');
+Route::get('/about', [AboutController::class,'index'])->name('about.index');
+Route::get('/services', [ServicesController::class,'index'])->name('services.index');
+Route::get('/portfolio', [ProductController::class,'index'])->name('portfolio.index');
+Route::get('/blogs', [ResourcesController::class,'blogs'])->name('resources.blogs');
+Route::get('/videos', [ResourcesController::class,'videos'])->name('resources.videos');
+Route::get('/contact', [ContactController::class,'index'])->name('contact.index');
 
 Route::prefix('admin')->group(function(){
 Route::any('/', [AdminusersController::class,'login']);
