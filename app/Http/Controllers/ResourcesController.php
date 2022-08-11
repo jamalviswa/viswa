@@ -93,9 +93,8 @@ class ResourcesController extends Controller
     public function admin_delete($id = null)
     {
         $data = Category::find($id);
-        $destination = public_path('images/categories/'.$data->category_image);
-        if(File::exists($destination))
-        {
+        $destination = public_path('images/categories/' . $data->category_image);
+        if (File::exists($destination)) {
             File::delete($destination);
         }
         $data->delete();
@@ -104,64 +103,14 @@ class ResourcesController extends Controller
         return \Redirect::route('resources.admin_index', []);
     }
 
-    //Index of Videos
-    public function videos_index()
-    {
-        $videos = Video::where('status', '<>', 'Trash')->orderBy('id', 'desc');
-        $videos = $videos->paginate(10);
-        return view('resources.videos_index', ['videos' => $videos]);
-    }
-
-    //Add of Videos
-    public function videos_add()
-    {
-        return view('resources.videos_add');
-    }
-
-    //Store of Videos
-    public function videos_store(Request $request)
-    {
-        $validateData = $request->validate([
-            'video_url' => 'required'
-        ]);
-        $videos = new Video();
-        $videos->video_url = $request->video_url;
-        $videos->status = "Active";
-        $videos->save();
-        Session::flash('message', 'Videos Added!');
-        Session::flash('alert-class', 'success');
-        return \Redirect::route('resources.videos_index', []);
-    }
-
-    public function videos_edit($id = null)
-    {
-        $detail = Video::where('id', '=', $id)->first();
-        return view('resources.videos_edit', ['detail' => $detail]);
-    }
-
-    public function videos_update(Request $request,$id = null)
-    {
-        $validateData = $request->validate([
-            'video_url' => 'required'
-        ]);
-        $videos = Video::find($id);
-        $videos->video_url = $request->video_url;
-        $videos->status = "Active";
-        $videos->save();
-        Session::flash('message', 'Videos Updated!');
-        Session::flash('alert-class', 'success');
-        return \Redirect::route('resources.videos_index', []);
-    }
 
 
-    public function videos_delete($id = null)
-    {
-        $data = Video::find($id);
-        $data->delete();
-        Session::flash('message', 'Deleted Sucessfully!');
-        Session::flash('alert-class', 'success');
-        return \Redirect::route('resources.videos_index', []);
-    }
+
+
+
+
+
+
 
 
     public function blogs()
@@ -255,7 +204,7 @@ class ResourcesController extends Controller
             'name' => 'required',
             'position' => 'required',
             'image' => 'required||mimes:jpg,jpeg,png'
-            
+
         ]);
         $categories = Expert::find($id);
         $categories->name = $request->name;
@@ -283,14 +232,76 @@ class ResourcesController extends Controller
     public function experts_delete($id = null)
     {
         $data = Expert::find($id);
-        $destination = public_path('images/experts/'.$data->image);
-        if(File::exists($destination))
-        {
+        $destination = public_path('images/experts/' . $data->image);
+        if (File::exists($destination)) {
             File::delete($destination);
         }
         $data->delete();
         Session::flash('message', 'Deleted Sucessfully!');
         Session::flash('alert-class', 'success');
         return \Redirect::route('resources.experts_index', []);
+    }
+
+    //Admin - Videos Index
+    public function videos_index()
+    {
+        $videos = Video::where('status', '<>', 'Trash')->orderBy('id', 'desc');
+        $videos = $videos->paginate(10);
+        return view('resources.videos_index', ['videos' => $videos]);
+    }
+
+    //Admin - Videos Add
+    public function videos_add()
+    {
+        return view('resources.videos_add');
+    }
+
+    public function videos_store(Request $request)
+    {
+        $validateData = $request->validate([
+            'video_url' => ['required', Rule::unique('videos')->where(function ($query) use ($request) {
+                return $query->where('video_url', $request->video_url)->where('status', '<>', 'Trash');
+            })],
+        ]);
+        $videos = new Video();
+        $videos->video_url = $request->video_url;
+        $videos->status = "Active";
+        $videos->save();
+        Session::flash('message', 'Videos Added!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.videos_index', []);
+    }
+
+    //Admin - Videos Edit
+    public function videos_edit($id = null)
+    {
+        $detail = Video::where('id', '=', $id)->first();
+        return view('resources.videos_edit', ['detail' => $detail]);
+    }
+
+    public function videos_update(Request $request, $id = null)
+    {
+        $validateData = $request->validate([
+            'video_url' => ['required', Rule::unique('videos')->where(function ($query) use ($request, $id) {
+                return $query->where('video_url', $request->video_url)->where('id', '<>', $id)->where('status', '<>', 'Trash');
+            })],
+        ]);
+        $videos = Video::find($id);
+        $videos->video_url = $request->video_url;
+        $videos->status = "Active";
+        $videos->save();
+        Session::flash('message', 'Videos Updated!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.videos_index', []);
+    }
+
+    //Admin - Videos Delete
+    public function videos_delete($id = null)
+    {
+        $data = Video::find($id);
+        $data->delete();
+        Session::flash('message', 'Deleted Sucessfully!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.videos_index', []);
     }
 }

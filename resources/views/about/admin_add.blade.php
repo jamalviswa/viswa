@@ -8,10 +8,10 @@
             </div>
             <div class="col-md-6 col-sm-12 text-right">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('adminusers.dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Add Clients</li>
                 </ul>
-                <a href="{{ url('admin/about/index') }}" class="btn btn-sm btn-primary">Back To List</a>
+                <a href="{{ route('about.admin_index') }}" class="btn btn-sm btn-primary">Back To List</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
                         <h2>Add Clients Details</h2>
                     </div>
                     <div class="body">
-                        <form id="basic-form" action="{{ url('admin/about/store') }}" method="post" enctype="multipart/form-data">
+                        <form id="basic-form" action="{{ route('about.admin_store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -38,7 +38,7 @@
                             </div>
                             <br>
                             <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                            <a href="{{ url('admin/about/index') }}" class="btn btn-sm btn-danger">Cancel</a>
+                            <a href="{{ route('about.admin_index') }}" class="btn btn-sm btn-danger">Cancel</a>
                         </form>
                     </div>
                 </div>

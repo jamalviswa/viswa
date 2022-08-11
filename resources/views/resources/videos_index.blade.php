@@ -22,6 +22,7 @@
                     <div class="header">
                         <h2>All Our Videos List</h2>
                     </div>
+
                     <!-- Table Start-->
                     <div class="body">
                         <?php if ($videos->count() > '0') { ?>
@@ -56,9 +57,11 @@
                             </div>
                     </div>
                     <!-- Table End-->
+
                     <div class="col-lg-12">
                         <div class="body">
                             <div class="row">
+
                                 <!-- Pagination Start-->
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <nav aria-label="...">
@@ -69,6 +72,7 @@
                         </div>
                     </div>
                     <!-- Pagination End-->
+
                 <?php } else { ?>
                     <div class="text-center">
                         <img src="{{URL::to('images/no-record.png')}}">

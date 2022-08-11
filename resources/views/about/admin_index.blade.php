@@ -11,7 +11,7 @@
                     <li class="breadcrumb-item"><a href="{{ route('adminusers.dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Our Clients</li>
                 </ul>
-                <a href="{{ url('admin/about/add') }}" class="btn btn-sm btn-primary">Create New</a>
+                <a href="{{ route('about.admin_add') }}" class="btn btn-sm btn-primary">Create New</a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
                     <div class="header">
                         <h2>All Clients List</h2>
                     </div>
-                    
+
                     <!-- Table Start-->
                     <div class="body">
                         <?php if ($clients->count() > '0') { ?>
@@ -43,7 +43,9 @@
                                                 {{ $i }}
                                             </td>
                                             <td>
-                                                <img src="{{URL::to('images/clients/'.$client->image.'')}}" class="img-fluid logo" alt="VTS" width="150" height="50">
+                                                <a href="{{URL::to('images/clients/'.$client['image'].'')}}" target="_blank">
+                                                    <img src="{{URL::to('images/clients/'.$client->image.'')}}" class="img-fluid logo" alt="VTS" width="150" height="50">
+                                                </a>
                                             </td>
                                             <td>
                                                 <a type="button" class="btn btn-info" href="{{ route('about.admin_edit', $client['id']) }}" title="Edit"><i class="fa fa-edit"></i></a>

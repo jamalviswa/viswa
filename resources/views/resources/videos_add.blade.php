@@ -11,7 +11,7 @@
                     <li class="breadcrumb-item"><a href="{{ route('adminusers.dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Add Our Videos</li>
                 </ul>
-                <a href="{{ route('resources.videos_index') }}" class="btn btn-sm btn-primary" title="">Back To List</a>
+                <a href="{{ route('resources.videos_index') }}" class="btn btn-sm btn-primary">Back To List</a>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ class AboutController extends Controller
         return view('about.index');
     }
 
-
+    //Admin - Clients Index
     public function admin_index()
     {
         $clients = Client::where('status', '<>', 'Trash')->orderBy('id', 'desc');
@@ -23,7 +23,7 @@ class AboutController extends Controller
         return view('about.admin_index', ['clients' => $clients]);
     }
 
-    //clients Add
+    //Admin - Clients Add 
     public function admin_add()
     {
         return view('about.admin_add');
@@ -32,7 +32,7 @@ class AboutController extends Controller
     public function admin_store(Request $request)
     {
         $validateData = $request->validate([
-            'image' => 'required||mimes:jpg,jpeg,png'
+            'image' => 'required||mimes:jpg,jpeg,png,gif'
         ]);
         $clients = new Client();
         if ($request->hasFile('image')) {
@@ -51,19 +51,24 @@ class AboutController extends Controller
         return \Redirect::route('about.admin_index', []);
     }
 
+    //Admin - Clients Edit 
     public function admin_edit($id = null)
     {
         $detail = Client::where('id', '=', $id)->first();
         return view('about.admin_edit', ['detail' => $detail]);
     }
 
-    public function admin_update(Request $request,$id = null)
+    public function admin_update(Request $request, $id = null)
     {
         $validateData = $request->validate([
-            'image' => 'required||mimes:jpg,jpeg,png'
+            'image' => 'mimes:jpg,jpeg,png,gif'
         ]);
         $clients = Client::find($id);
         if ($request->hasFile('image')) {
+            $destination = public_path('images/clients/' . $clients->image);
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
             $image = $request->file('image');
             $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
             $image_resize = Image::make($image->getRealPath());
@@ -79,6 +84,7 @@ class AboutController extends Controller
         return \Redirect::route('about.admin_index', []);
     }
 
+    //Admin - Clients Delete 
     public function admin_delete($id = null)
     {
         $data = Client::find($id);

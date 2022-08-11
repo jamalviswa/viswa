@@ -11,7 +11,7 @@
                     <li class="breadcrumb-item"><a href="{{ route('adminusers.dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Add Our Videos</li>
                 </ul>
-                <a href="{{ route('resources.videos_index') }}" class="btn btn-sm btn-primary" title="">Back To List</a>
+                <a href="{{ route('resources.videos_index') }}" class="btn btn-sm btn-primary">Back To List</a>
             </div>
         </div>
     </div>
@@ -33,6 +33,10 @@
                                         @error('video_url')
                                         <div class="text text-danger">{{ $message }}</div>
                                         @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group m-t-20">
                                         @if(!empty($detail['video_url']))
                                         <iframe class="embed-responsive-item" src="{{$detail->video_url}}" width="150" height="50" style="padding-top:5px;"></iframe>
                                         @endif

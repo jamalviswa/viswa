@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\Sitesetting;
 use Session;
 use Image;
@@ -51,8 +52,12 @@ class SitesettingsController extends Controller
         $sitesettings->linkedin_url = $request->linkedin_url;
         $sitesettings->instagram_url = $request->instagram_url;
         $sitesettings->twitter_url = $request->twitter_url;
-
+       
         if ($request->hasFile('logo')) {
+            $destination = public_path('images/sitesettings/' . $sitesettings->logo);
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
             $image = $request->file('logo');
             $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
             $image_resize = Image::make($image->getRealPath());
@@ -61,14 +66,19 @@ class SitesettingsController extends Controller
             $image_resize->save($destination_path . $new_image1);
             $sitesettings->logo = $new_image1;
         }
+       
         if ($request->hasFile('favicon')) {
+            $destinations = public_path('images/sitesettings/' . $sitesettings->favicon);
+            if (File::exists($destinations)) {
+                File::delete($destinations);
+            }
             $images = $request->file('favicon');
             $new_image2 = date('Y-m-d-') . time() . "." . $images->extension();
             $image_resizes = Image::make($images->getRealPath());
             $image_resizes->resize(48, 48);
             $destination_paths = public_path('/images/sitesettings/');
             $image_resizes->save($destination_paths . $new_image2);
-            $sitesettings->favicon = $new_image2;
+            $sitesettings->favicon = $new_image2;   
         }
         $sitesettings->status = "Active";
         $sitesettings->save();
