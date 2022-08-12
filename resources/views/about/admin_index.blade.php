@@ -44,7 +44,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{URL::to('images/clients/'.$client['image'].'')}}" target="_blank">
-                                                    <img src="{{URL::to('images/clients/'.$client->image.'')}}" class="img-fluid logo" alt="VTS" width="150" height="50">
+                                                    <img src="{{URL::to('images/clients/'.$client->image.'')}}" class="img-fluid logo" alt="VTS" width="100" height="50">
                                                 </a>
                                             </td>
                                             <td>

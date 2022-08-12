@@ -13,95 +13,12 @@ use Image;
 
 class ResourcesController extends Controller
 {
-    //Service Categories Index Section
-    public function admin_index()
-    {
-        $categories = Category::where('status', '<>', 'Trash')->orderBy('id', 'desc');
-        if (!empty($_REQUEST['s'])) {
-            $s = $_REQUEST['s'];
-            $categories->where(function ($query) use ($s) {
-                $query->where('category_name', 'LIKE', "%$s%");
-            });
-        }
-        $categories = $categories->paginate(10);
-        return view('resources.admin_index', ['categories' => $categories]);
-    }
+    
 
-    //Service Categories Add Section
-    public function admin_add()
-    {
-        return view('resources.admin_add');
-    }
-    public function admin_store(Request $request)
-    {
-        $validateData = $request->validate([
-            'category_image' => 'required||mimes:jpg,jpeg,png',
-            'category_name' => ['required', Rule::unique('categories')->where(function ($query) use ($request) {
-                return $query->where('category_name', $request->category_name)->where('status', '<>', 'Trash');
-            })],
-        ]);
-        $categories = new Category();
-        $categories->category_name = $request->category_name;
-        if ($request->hasFile('category_image')) {
-            $image = $request->file('category_image');
-            $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
-            $image_resize = Image::make($image->getRealPath());
-            $image_resize->resize(16, 16);
-            $destination_path = public_path('/images/categories/');
-            $image_resize->save($destination_path . $new_image1);
-            $categories->category_image = $new_image1;
-        }
-        $categories->status = "Active";
-        $categories->save();
-        Session::flash('message', 'Category Added!');
-        Session::flash('alert-class', 'success');
-        return \Redirect::route('resources.admin_index', []);
-    }
 
-    public function admin_edit($id = null)
-    {
-        $detail = Category::find($id);
-        return view('resources/admin_edit', ['detail' => $detail]);
-    }
 
-    public function admin_update(Request $request)
-    {
-        $id = $request->id;
-        $validateData = $request->validate([
-            'category_name' => ['required', Rule::unique('categories')->where(function ($query) use ($request, $id) {
-                return $query->where('category_name', $request->category_name)->where('id', '<>', $id)->where('status', '<>', 'Trash');
-            })],
-        ]);
-        $categories = Category::find($id);
-        $categories->category_name = $request->category_name;
-        if ($request->hasFile('category_image')) {
-            $image = $request->file('category_image');
-            $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
-            $image_resize = Image::make($image->getRealPath());
-            $image_resize->resize(16, 16);
-            $destination_path = public_path('/images/categories/');
-            $image_resize->save($destination_path . $new_image1);
-            $categories->category_image = $new_image1;
-        }
-        $categories->status = "Active";
-        $categories->save();
-        Session::flash('message', 'Category Updated!');
-        Session::flash('alert-class', 'success');
-        return \Redirect::route('resources.admin_index', []);
-    }
-
-    public function admin_delete($id = null)
-    {
-        $data = Category::find($id);
-        $destination = public_path('images/categories/' . $data->category_image);
-        if (File::exists($destination)) {
-            File::delete($destination);
-        }
-        $data->delete();
-        Session::flash('message', 'Deleted Sucessfully!');
-        Session::flash('alert-class', 'success');
-        return \Redirect::route('resources.admin_index', []);
-    }
+   
+   
 
 
 
@@ -240,6 +157,103 @@ class ResourcesController extends Controller
         Session::flash('message', 'Deleted Sucessfully!');
         Session::flash('alert-class', 'success');
         return \Redirect::route('resources.experts_index', []);
+    }
+
+    //Admin - Service Categories Index
+    public function admin_index()
+    {
+        $categories = Category::where('status', '<>', 'Trash')->orderBy('id', 'desc');
+        if (!empty($_REQUEST['s'])) {
+            $s = $_REQUEST['s'];
+            $categories->where(function ($query) use ($s) {
+                $query->where('category_name', 'LIKE', "%$s%");
+            });
+        }
+        $categories = $categories->paginate(10);
+        return view('resources.admin_index', ['categories' => $categories]);
+    }
+
+    //Admin - Service Categories Add
+    public function admin_add()
+    {
+        return view('resources.admin_add');
+    }
+
+    public function admin_store(Request $request)
+    {
+        $validateData = $request->validate([
+            'category_image' => 'required||mimes:jpg,jpeg,png',
+            'category_name' => ['required', Rule::unique('categories')->where(function ($query) use ($request) {
+                return $query->where('category_name', $request->category_name)->where('status', '<>', 'Trash');
+            })],
+        ]);
+        $categories = new Category();
+        $categories->category_name = $request->category_name;
+        if ($request->hasFile('category_image')) {
+            $image = $request->file('category_image');
+            $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(16, 16);
+            $destination_path = public_path('/images/categories/');
+            $image_resize->save($destination_path . $new_image1);
+            $categories->category_image = $new_image1;
+        }
+        $categories->status = "Active";
+        $categories->save();
+        Session::flash('message', 'Category Added!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.admin_index', []);
+    }
+
+    //Admin - Service Categories Edit
+    public function admin_edit($id = null)
+    {
+        $detail = Category::where('id', '=', $id)->first();
+        return view('resources.admin_edit', ['detail' => $detail]);
+    }
+
+    public function admin_update(Request $request, $id = null)
+    {
+        $validateData = $request->validate([
+            'category_image' => 'mimes:jpg,jpeg,png',
+            'category_name' => ['required', Rule::unique('categories')->where(function ($query) use ($request, $id) {
+                return $query->where('category_name', $request->category_name)->where('id', '<>', $id)->where('status', '<>', 'Trash');
+            })],
+        ]);
+        $categories = Category::find($id);
+        $categories->category_name = $request->category_name;
+        if ($request->hasFile('category_image')) {
+            $destination = public_path('images/categories/' . $categories->category_image);
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $image = $request->file('category_image');
+            $new_image1 = date('Y-m-d-') . time() . "." . $image->extension();
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(16, 16);
+            $destination_path = public_path('/images/categories/');
+            $image_resize->save($destination_path . $new_image1);
+            $categories->category_image = $new_image1;
+        }
+        $categories->status = "Active";
+        $categories->save();
+        Session::flash('message', 'Category Updated!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.admin_index', []);
+    }
+
+    //Admin - Service Categories Delete
+    public function admin_delete($id = null)
+    {
+        $data = Category::find($id);
+        $destination = public_path('images/categories/' . $data->category_image);
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
+        $data->delete();
+        Session::flash('message', 'Deleted Sucessfully!');
+        Session::flash('alert-class', 'success');
+        return \Redirect::route('resources.admin_index', []);
     }
 
     //Admin - Videos Index
