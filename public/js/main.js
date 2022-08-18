@@ -106,7 +106,6 @@
         loop: true,
         margin: 50,
         dots: false,
-        loop: true,
         autoplay: true,
         smartSpeed: 1000,
         responsive: {
@@ -124,12 +123,117 @@
             }
         }
     });
+
+    $('.vendors-carousel').owlCarousel({
+        loop: true,
+        margin: 50,
+        dots: false,
+        autoplay: true,
+        smartSpeed: 1000,
+        responsive: {
+            0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+
+    $('.testimonial-slider').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        items: 1,
+        smartSpeed: 2000,
+        dots: false
+    });
+
+    $('.carousel-inner').carousel - items({
+        loop: true,
+        margin: 10,
+        nav: true,
+        items: 1,
+        smartSpeed: 2000,
+        dots: false
+    });
     
 })(jQuery);
 
 
+
+/*scrolling banner*/ 
+    $(document).ready(function () {
+      $(".carousel_se_02_carousel").owlCarousel({
+        items: 4,
+        
+       
+  
+        mouseDrag: true,
+        responsiveClass: true,
+       
+        responsive: {
+          0: {
+            items: 1,
+          },
+          480: {
+            items: 2,
+          },
+          767: {
+            items: 3,
+          },
+          992: {
+            items: 3,
+          },
+          1200: {
+            items: 4,
+          },
+        },
+      });
+    })(jQuery);
+
+
+    $(document).ready(function(){
+	    $('.carousel_se_03_carousel').owlCarousel({
+	        items: 4,
+	        nav: true,
+	        dots: false,
+	        loop :true,
+	       
+	        mouseDrag: true,
+	        responsiveClass: true,
+	        autoplay: true,
+	        autoplayTimeout: 3000,
+	        autoplayHoverPause: true,
+	        navText : ["<i class='icofont-scroll-left'></i>","<i class='icofont-scroll-right'></i>"],
+	        responsive: {
+	            0:{
+	              items: 1
+	            },
+	            480:{
+	              items: 2
+	            },
+	            767:{
+	              items: 3
+	            },
+	            992:{
+	              items: 3
+	            },
+	            1200:{
+	              items: 4
+	            }
+	        }
+	    });
+	});  
+
+   
     
-    
-           
+      
 
 

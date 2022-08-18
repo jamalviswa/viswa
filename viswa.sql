@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2022 at 01:15 PM
+-- Generation Time: Aug 12, 2022 at 01:17 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -243,7 +243,7 @@ CREATE TABLE `sitesettings` (
 --
 
 INSERT INTO `sitesettings` (`id`, `site_title`, `meta_description`, `meta_keywords`, `logo`, `favicon`, `mobile_number`, `telephone_number`, `email`, `alt_email`, `address`, `map_url`, `facebook_url`, `whatsapp_url`, `linkedin_url`, `instagram_url`, `twitter_url`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Viswa Technology Solutions', 'When Tech Meets Empowerment', 'Android, Website Development, Mobile App Development, E commerce Solution,Graphic Designing,Social media marketing in Coimbatore', '2022-08-02-1659438513.png', '2022-08-02-1659438514.png', '+91 78679 97754', '+91 78268 60880', 'info@viswatechnologysolutions.com', 'viswa.technologysolution@gmail.com', '83A, Ramalinga Colony,\r\nSaibaba Colony,\r\nCoimbatore - 641043', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15664.974894254266!2d76.9511591!3d11.0203318!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6bf55a9aab56f1f8!2sViswa%20Technology%20Solutions!5e0!3m2!1sen!2sin!4v1653485457162!5m2!1sen!2sin', 'https://www.facebook.com/viswatechnologysolutions/', 'gfhfh', 'https://www.linkedin.com/in/viswa-technology-solutions-566a77209/', 'https://www.instagram.com/viswa.technologysolutions/', 'https://twitter.com/SolutionViswa', 'Active', NULL, '2022-08-02 11:12:29');
+(1, 'Viswa Technology Solutions', 'When Tech Meets Empowerment', 'Android, Website Development, Mobile App Development, E commerce Solution,Graphic Designing,Social media marketing in Coimbatore', '2022-08-11-1660189509.png', '2022-08-11-1660189457.png', '+91 78679 97754', '+91 78268 60880', 'info@viswatechnologysolutions.com', 'viswa.technologysolution@gmail.com', '83A, Ramalinga Colony,\r\nSaibaba Colony,\r\nCoimbatore,\r\nPincode - 641043.', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15664.974894254266!2d76.9511591!3d11.0203318!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6bf55a9aab56f1f8!2sViswa%20Technology%20Solutions!5e0!3m2!1sen!2sin!4v1653485457162!5m2!1sen!2sin', 'https://www.facebook.com/viswatechnologysolutions/', 'https://web.whatsapp.com/', 'https://www.linkedin.com/in/viswa-technology-solutions-566a77209/', 'https://www.instagram.com/viswa.technologysolutions/', 'https://twitter.com/SolutionViswa', 'Active', NULL, '2022-08-11 03:45:10');
 
 -- --------------------------------------------------------
 
@@ -291,11 +291,7 @@ INSERT INTO `videos` (`id`, `title`, `video_url`, `added_by`, `status`, `created
 (14, NULL, 'https://www.youtube.com/embed/NlUlOvc7IGQ?controls=0', NULL, 'Active', '2022-08-01 10:25:55', '2022-08-01 10:25:55'),
 (15, NULL, 'https://www.youtube.com/embed/_nOtJkrAqws?controls=0', NULL, 'Active', '2022-08-01 10:26:12', '2022-08-01 10:26:12'),
 (16, NULL, 'https://www.youtube.com/embed/BBJ-O-FP0-E?controls=0', NULL, 'Active', '2022-08-01 10:26:35', '2022-08-01 10:26:35'),
-(17, NULL, 'https://www.youtube.com/embed/3m81RA-qrAY?controls=0', NULL, 'Active', '2022-08-01 10:26:55', '2022-08-01 10:26:55'),
-(18, NULL, 'https://www.youtube.com/embed/wumohCI_7Q4', NULL, 'Active', '2022-08-02 08:24:39', '2022-08-02 08:24:39'),
-(19, NULL, 'https://www.youtube.com/embed/Kx_LgjKavyg', NULL, 'Active', '2022-08-02 09:45:39', '2022-08-02 09:45:39'),
-(20, NULL, 'https://www.youtube.com/embed/0xHQMqfFk_Q', NULL, 'Active', '2022-08-02 09:46:16', '2022-08-02 09:46:16'),
-(21, NULL, 'https://www.youtube.com/embed/k5E2AVpwsko', NULL, 'Active', '2022-08-02 09:47:19', '2022-08-02 09:47:19');
+(17, NULL, 'https://www.youtube.com/embed/3m81RA-qrAY?controls=0', NULL, 'Active', '2022-08-01 10:26:55', '2022-08-01 10:26:55');
 
 --
 -- Indexes for dumped tables
@@ -385,13 +381,13 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `experts`
@@ -433,7 +429,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

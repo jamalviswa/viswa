@@ -29,6 +29,12 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('css/owl.carousel.min.css') }}">
+
+    <!--  Owl Carousel Theme CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('css/owl.theme.default.min.css') }}">
 </head>
 
 <body>
@@ -63,6 +69,7 @@
 
         <!-- Template Javascript -->
         <script src="{{ URL::asset('js/main.js') }}"></script>
+        <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
 </body>
 
 </html>
