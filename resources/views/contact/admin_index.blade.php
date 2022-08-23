@@ -8,10 +8,9 @@
             </div>
             <div class="col-md-6 col-sm-12 text-right">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('adminusers.dashboard') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item active">Contact Enquiries</li>
                 </ul>
-                <!-- <a href="{{ url('admin/about/add') }}" class="btn btn-sm btn-primary" title="">Create New</a> -->
             </div>
         </div>
     </div>
@@ -20,24 +19,24 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="header">
-                        <h2>All Contact Enquiries List</h2>
-                       
+                        <h2>All Contact Enquiries List</h2>      
                     </div>
                     <div class="body">
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-12">
-                                <form>
+                            <form method="GET" action="#">
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Search...">
+                                                <input type="text" name="s" class="form-control" placeholder="Search..." autocomplete="off" @if(isset($_REQUEST['s'])) value="{{ $_REQUEST['s'] }}" @else value="" @endif>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
-                                            <button type="button" class="btn btn-success"><i class="icon-magnifier"></i></button>
-                                            <button type="button" class="btn btn-danger"><i class="icon-close"></i></button>
+                                            <button type="submit" class="btn btn-success" name="search"><i class="icon-magnifier"></i></button>
+                                            @if (isset($_REQUEST['search']))
+                                            <a href="{{ route('contact.admin_index') }}" class="btn btn-danger"><i class="icon-close"></i></a>
+                                            @endif
                                         </div>
-                                       
                                     </div>
                                 </form>
                             </div>
@@ -46,6 +45,7 @@
                     
                     <!-- Table Start-->
                     <div class="body">
+                    <?php if ($contacts->count() > '0') { ?>
                         <div class="table-responsive">
                             <table class="table table-hover m-b-0 c_list">
                                 <thead class="thead-dark">
@@ -58,67 +58,55 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php $i = ($contacts->currentpage() - 1) * $contacts->perpage() + 1; ?>
+                                        @foreach($contacts as $contact)
                                     <tr>
                                         <td style="width: 50px;">
-                                            1
+                                        {{ $i }}
                                         </td>
                                         <td>
-                                        <p class="c_name">Kamal</p>
+                                        <p class="c_name">{{$contact->name}}</p>
                                         </td>
                                         <td>
-                                        <p>Kamal@gmail.com</p>
+                                        <p>{{$contact->email}}</p>
                                         </td>
                                         <td>
-                                        <p>Applying for jobs</p>
+                                        <p>{{$contact->subject}}</p>
                                         </td>
                                         <td>
-                                            <!-- <a href="{{ url('admin/about/edit') }}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-edit"></i></a> -->
-                                            <!-- <a href="{{ url('admin/resources/experts/view') }}" class="btn btn-sm btn-success" title="View"><i class="fa fa-eye"></i></a> -->
-                                            <a href="#" class="btn btn-sm btn-danger js-sweetalert" data-type="confirm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                        </td>
+                                                <a rel="tooltip" data-value="{{$contact['id']}}" href="{{ route('contact.admin_delete',$contact['id']) }}" class="delete btn btn-danger" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                            </td>
                                     </tr>
-                                   
+                                    <?php $i++; ?>
+                                        @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <!-- Table End-->
 
-                    <!-- Pagination showing Entries start-->
-                    <div class="col-lg-12">
+                   <!-- Pagination Start-->
+                   <div class="col-lg-12">
                         <div class="body">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <p>Showing 1 to 1 of 1 entries</p>
-                                </div>
-                                <!-- Pagination showing Entries End-->
-
-                                <!-- Pagination Start-->
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
                                     <nav aria-label="...">
-                                        <ul class="pagination justify-content-end">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="javascript:void(0);" tabindex="-1">Previous</a>
-                                            </li>
-                                            <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                            <!-- <li class="page-item active">
-                                                <a class="page-link" href="javascript:void(0);">2 <span class="sr-only">(current)</span></a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
-                                            <li class="page-item">
-                                                <a class="page-link" href="javascript:void(0);">Next</a>
-                                            </li>
-                                        </ul>
+                                        {{ $contacts->links('layouts.pagination') }}
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Pagination End-->
+
+                    <?php } else { ?>
+                    <div class="text-center">
+                        <img src="{{URL::to('images/no-record.png')}}">
+                    </div>
+                <?php } ?>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection

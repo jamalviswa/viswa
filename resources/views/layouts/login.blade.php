@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="{{ URL::asset('css/admin/vendor/bootstrap/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/admin/vendor/font-awesome/css/font-awesome.min.css') }}">
 
+<link rel="stylesheet" href="{{ URL::asset('css/admin/css/sweetalert.css') }}">
+
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{ URL::asset('css/admin/css/main.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/admin/css/color_skins.css') }}">
@@ -61,6 +63,27 @@
 <script src="{{ URL::asset('css/admin/bundles/libscripts.bundle.js') }}"></script>    
 <script src="{{ URL::asset('css/admin/bundles/vendorscripts.bundle.js') }}"></script>
 
+<script src="{{ URL::asset('css/admin/js/sweetalert.min.js') }}"></script>
+
 <script src="{{ URL::asset('css/admin/bundles/mainscripts.bundle.js') }}"></script>
+
+<?php
+    if (session()->has('message')) {
+        $success = session()->get('message');
+        $type = session()->get('alert-class');
+    ?>
+        <script>
+            swal({
+                title: "<?php echo ($type == 'success') ? 'Success' : "Error" ?>",
+                text: "<?php echo $success; ?>",
+                type: "<?php echo $type; ?>",
+                showCancelButton: false,
+                showConfirmButton: false,
+                timer: 2000
+            });
+        </script>
+    <?php }
+    ?>
+    
 </body>
 </html>

@@ -10,7 +10,7 @@ use Image;
 
 class SitesettingsController extends Controller
 {
-
+    //Admin - Sitesettings Edit
     public function index()
     {
         $id = 1;

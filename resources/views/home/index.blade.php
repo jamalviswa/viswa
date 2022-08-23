@@ -273,20 +273,9 @@
     <div class="container py-5 mb-5">
         <div class="bg-white">
             <div class="owl-carousel vendor-carousel">
-                <img src="{{URL::to('images/banners/1.png')}}" alt="">
-                <img src="{{URL::to('images/banners/2.png')}}" alt="">
-                <img src="{{URL::to('images/banners/cell.png')}}" alt="">
-                <img src="{{URL::to('images/banners/4.png')}}" alt="">
-                <img src="{{URL::to('images/banners/5.png')}}" alt="">
-                <img src="{{URL::to('images/banners/6.png')}}" alt="">
-                <img src="{{URL::to('images/banners/7.png')}}" alt="">
-                <img src="{{URL::to('images/banners/8.png')}}" alt="">
-                <img src="{{URL::to('images/banners/9.png')}}" alt="">
-                <img src="{{URL::to('images/banners/10.png')}}" alt="">
-                <img src="{{URL::to('images/banners/11.png')}}" alt="">
-                <img src="{{URL::to('images/banners/12.png')}}" alt="">
-                <img src="{{URL::to('images/banners/13.png')}}" alt="">
-                <img src="{{URL::to('images/banners/14.png')}}" alt="">
+                <?php foreach ($clients as $client) { ?>
+                    <img src="{{URL::to('images/clients/'.$client['image'].'')}}" alt="">
+                <?php } ?>
             </div>
         </div>
     </div>

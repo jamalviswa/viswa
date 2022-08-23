@@ -9,7 +9,7 @@
             <div class="col-md-6 col-sm-12 text-right">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('adminusers.dashboard') }}"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item active">Add Our Videos</li>
+                    <li class="breadcrumb-item active">Edit Our Videos</li>
                 </ul>
                 <a href="{{ route('resources.videos_index') }}" class="btn btn-sm btn-primary">Back To List</a>
             </div>
@@ -20,7 +20,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="header">
-                        <h2>Add Our Videos</h2>
+                        <h2>Edit Our Videos</h2>
                     </div>
                     <div class="body">
                         <form id="basic-form" action="{{ route('resources.videos_update', $detail['id']) }}" method="post" enctype="multipart/form-data">

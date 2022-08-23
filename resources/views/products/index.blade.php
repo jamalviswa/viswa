@@ -19,6 +19,44 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row">
+
+
+                <div class="col-sm-12 text-center wow fadeInUp">
+                    <h2>App Development</h2>
+                </div>
+                <div class="col-md-12 px-4 pt-0">
+                    <div class="owl-carousel carousel_se_02_carousel owl-theme">
+                        <?php
+                        foreach ($products as $product) {
+                        ?>
+                            <!-- 01 -->
+                            <div class="item">
+                                <div class="col-md-12 p-2 wow fadeInUp delay-1">
+                                    <div class="">
+                                        <div class="product-image3 hover15">
+                                            <img src="{{URL::to('images/products/'.$product['image'])}}" class="img-fluid pic-1" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 01 -->
+                        <?php
+                        }
+                        ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- App Development Section End -->
+
+<!-- App Development Section Start -->
+<section class="carousel_se_02">
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row">
                 <div class="col-sm-12 text-center wow fadeInUp">
                     <h2>App Development</h2>
                 </div>

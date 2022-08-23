@@ -42,7 +42,7 @@
                 <a href="{{ route('home.index') }}" class="nav-item nav-link {{ Request::is('/') ? 'active':'' }}">Home</a>
                 <a href="{{ route('about.index') }}" class="nav-item nav-link {{ Request::is('about') ? 'active':'' }}">About</a>
                 <a href="{{ route('services.index') }}" class="nav-item nav-link {{ Request::is('services') ? 'active':'' }}">Services</a>
-                <a href="{{ route('portfolio.index') }}" class="nav-item nav-link {{ Request::is('portfolio') ? 'active':'' }}">portfolio</a>
+                <a href="{{ route('products.index') }}" class="nav-item nav-link {{ Request::is('portfolio') ? 'active':'' }}">portfolio</a>
                 <div class="nav-item dropdown">
                     <a href="" class="nav-link dropdown-toggle {{ Request::is('blogs') || Request::is('videos') ? 'active':'' }}" data-bs-toggle="dropdown">Resources</a>
                     <div class="dropdown-menu m-0">

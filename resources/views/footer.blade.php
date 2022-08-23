@@ -43,7 +43,7 @@
                             <a class="text-light mb-2" href="{{ route('services.index') }}"><i class="bi bi-arrow-right text-primary me-2"></i>Services</a>
                             <a class="text-light mb-2" href="{{ route('resources.blogs') }}"><i class="bi bi-arrow-right text-primary me-2"></i>Blogs</a>
                             <a class="text-light mb-2" href="{{ route('resources.videos') }}"><i class="bi bi-arrow-right text-primary me-2"></i>Videos</a>
-                            <a class="text-light mb-2" href="{{ route('portfolio.index') }}"><i class="bi bi-arrow-right text-primary me-2"></i>Portfolio</a>
+                            <a class="text-light mb-2" href="{{ route('products.index') }}"><i class="bi bi-arrow-right text-primary me-2"></i>Portfolio</a>
                             <a class="text-light" href="{{ route('contact.index') }}"><i class="bi bi-arrow-right text-primary me-2"></i>Contact</a>
                         </div>
                     </div>
